@@ -41,7 +41,7 @@ const Navbar = () => {
             fontWeight="bold"
             color="red.500"
           >
-            <Image src={logo} />
+            <Image onClick={() => navigate("/")} src={logo} />
             <Menu>
               <MenuButton bg={"none"} as={Button}>
                 <HamburgerIcon />
@@ -79,7 +79,7 @@ const Navbar = () => {
         </Flex>
 
         <HStack spacing={8} color="gray.500" fontSize="sm">
-          <Text as="a" href="#">
+          <Text as="a" href="/">
             Home
           </Text>
           <Text as="a" href="#">
