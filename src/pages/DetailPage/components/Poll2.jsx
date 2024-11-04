@@ -14,7 +14,8 @@ import {
   Image,
   Divider,
 } from "@chakra-ui/react";
-
+import arrow from "/assets/arrow.svg";
+import result from "/assets/result.svg";
 const Poll2 = () => {
   const [selectedOption, setSelectedOption] = useState("");
   const [hasVoted, setHasVoted] = useState(false);
@@ -88,7 +89,7 @@ const Poll2 = () => {
             fontWeight="semibold"
           >
             Vote
-            <Image ml={3} w={6} src="/assets/arrow.svg" />
+            <Image ml={3} w={6} src={arrow} />
           </Button>
           <Button
             variant={"outline"}
@@ -99,7 +100,7 @@ const Poll2 = () => {
             fontSize="md"
             fontWeight="normal"
           >
-            <Image mr={3} w={6} src="/assets/result.svg" />
+            <Image mr={3} w={6} src={result} />
             Show Results
           </Button>
         </RadioGroup>

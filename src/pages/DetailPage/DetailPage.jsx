@@ -14,12 +14,13 @@ import { CiFlag1, CiHeart, CiShare2 } from "react-icons/ci";
 import { FaRegCommentDots } from "react-icons/fa";
 import Poll2 from "./components/Poll2";
 import CommentSection from "./components/Comment";
+import mainBanner from "/assets/mainbanner2.svg";
 
 const DetailPage = () => {
   return (
     <Box w={"full"} h={"full"} bg={"white"}>
       <Layout>
-        <Image src="/assets/mainbanner2.svg" />
+        <Image src={mainBanner} />
         <Flex justifyContent={"space-between"} alignItems={"center"} py={8}>
           <Stack flex={0.6}>
             <Text fontWeight={"semibold"} fontSize={"26px"}>

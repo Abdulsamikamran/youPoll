@@ -11,6 +11,12 @@ import {
   Center,
 } from "@chakra-ui/react";
 import Layout from "../../layout";
+import avatar from "/assets/avatar2.svg";
+import sliderImage from "/assets/sliderImage.svg";
+import mainBanner from "/assets/mainBanner.svg";
+import banner1 from "/assets/image1.png";
+import verified from "/assets/verified.svg";
+import banner2 from "/assets/banner1.svg";
 
 import PostCard from "./components/PostCard";
 import TrendItem from "./components/Trends";
@@ -23,7 +29,7 @@ const Home = () => {
           mb={8}
           p={52}
           w={"full"}
-          bgImage={"/assets/mainBanner.svg"}
+          bgImage={mainBanner}
           bgColor={"brand.100"}
           bgSize="cover"
           bgPos="center"
@@ -64,7 +70,7 @@ const Home = () => {
             .fill("")
             .map((_, index) => (
               <Box
-                bgImage="/assets/sliderImage.svg"
+                bgImage={sliderImage}
                 key={index}
                 w="210px" // Fixed width to maintain size
                 h="140px"
@@ -82,7 +88,7 @@ const Home = () => {
                 </Text>
                 <Flex justifyContent="space-between" alignItems="center">
                   <Flex gap={2} my={3} alignItems="center">
-                    <Avatar size="xs" src="/assets/avatar1.svg" />
+                    <Avatar size="xs" src={avatar} />
                     <Text color="white" fontSize="10px">
                       Warren Casey
                     </Text>
@@ -99,30 +105,30 @@ const Home = () => {
           <Box flex="2">
             <PostCard
               username="Abram Maryan"
-              avatarSrc="/assets/avatar2.svg"
+              avatarSrc={avatar}
               daysAgo="5 days ago"
               question="Question: The Next Era of Air Mobility?"
               category="Business"
               description="Lorem ipsum dolor sit amet, consectetur adipiscing elit..."
-              imageSrc="/assets/image1.png"
+              imageSrc={banner1}
             />
             <PostCard
               username="Abram Maryan"
-              avatarSrc="/assets/avatar2.svg"
+              avatarSrc={avatar}
               daysAgo="5 days ago"
               question="Question: The Next Era of Air Mobility?"
               category="Business"
               description="Lorem ipsum dolor sit amet, consectetur adipiscing elit..."
-              imageSrc="/assets/banner1.svg"
+              imageSrc={banner2}
             />
             <PostCard
               username="Abram Maryan"
-              avatarSrc="/assets/avatar2.svg"
+              avatarSrc={avatar}
               daysAgo="5 days ago"
               question="Question: The Next Era of Air Mobility?"
               category="Business"
               description="Lorem ipsum dolor sit amet, consectetur adipiscing elit..."
-              imageSrc="/assets/banner1.svg"
+              imageSrc={banner2}
             />
           </Box>
 
@@ -146,19 +152,14 @@ const Home = () => {
                 >
                   <Stack spacing={0}>
                     <Flex alignItems={"start"}>
-                      <Avatar
-                        name={name}
-                        src="/assets/avatar1.svg"
-                        size="sm"
-                        mr={3}
-                      />
+                      <Avatar name={name} src={avatar} size="sm" mr={3} />
                       <Stack spacing={0}>
                         <Text fontWeight="semibold">{name}</Text>
                         <Text fontSize="10px" color={"gray.600"}>
                           @Paul
                         </Text>
                       </Stack>
-                      <Image mt={1} src="/assets/verified.svg" w={4} />
+                      <Image mt={1} src={verified} w={4} />
                     </Flex>
                   </Stack>
                   <Box>

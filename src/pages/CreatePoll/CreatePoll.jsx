@@ -24,7 +24,7 @@ import {
 import { AddIcon, CloseIcon } from "@chakra-ui/icons";
 import { useState } from "react";
 import Layout from "../../layout";
-import { Link } from "react-router-dom";
+import calender from "/assets/calender.svg";
 
 const CreatePoll = () => {
   const [options, setOptions] = useState(["Option 1", "Option 2"]);
@@ -251,9 +251,7 @@ const CreatePoll = () => {
                     placeholder="mm/dd/yyyy"
                     size="sm"
                   />
-                  <InputRightElement
-                    children={<Image src={"/assets/calender.svg"} />}
-                  />
+                  <InputRightElement children={<Image src={calender} />} />
                 </InputGroup>
                 <Flex justifyContent={"space-between"} alignItems="center">
                   <Text>Allow comments</Text>

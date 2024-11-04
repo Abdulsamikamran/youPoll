@@ -15,7 +15,13 @@ import { BiSolidLike } from "react-icons/bi";
 import { BiSolidComment } from "react-icons/bi";
 import { PiShareFatFill } from "react-icons/pi";
 import { CiFlag1, CiHeart, CiShare2 } from "react-icons/ci";
-import Poll from "./Poll"; // Import Poll component if it's custom
+import Poll from "./Poll";
+import avatar1 from "/assets/avatar1.svg";
+import avatar2 from "/assets/avatar2.svg";
+import avatar3 from "/assets/avatar3.svg";
+import avatar4 from "/assets/avatar4.svg";
+import avatar5 from "/assets/avatar5.svg";
+import avatar6 from "/assets/avatar6.svg";
 import { useNavigate } from "react-router-dom";
 
 const PostCard = ({
@@ -32,6 +38,7 @@ const PostCard = ({
     setLiked((liked) => !liked);
   };
   const navigate = useNavigate();
+  const avatars = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6];
   return (
     <Box
       mb={8}
@@ -146,15 +153,16 @@ const PostCard = ({
           Vote
         </Button>
         <Flex alignItems="center">
-          {[1, 2, 3, 4, 5, 6].map((i) => (
+          {avatars.map((src, i) => (
             <Avatar
               key={i}
               position="absolute"
-              left={`${170 + 25 * i}px`}
+              left={`${170 + 25 * i}px`} // Adjusted for the correct left position
               size="md"
-              src={`/assets/avatar${i}.svg`}
+              src={src}
             />
           ))}
+
           <Flex gap={8} alignItems="center">
             <Text>+170 Votes</Text>
             <HStack>

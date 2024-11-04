@@ -8,10 +8,11 @@ import {
   Icon,
   Divider,
 } from "@chakra-ui/react";
-import { FaRegThumbsUp, FaRegComment } from "react-icons/fa";
+
 import { BiTimeFive } from "react-icons/bi";
-import { CiFlag1, CiHeart, CiShare2 } from "react-icons/ci";
+import { CiHeart } from "react-icons/ci";
 import { BsReplyAll } from "react-icons/bs";
+import avatar from "/assets/avatar2.svg";
 
 const Comment = ({ name, avatarSrc, timeAgo, text }) => (
   <HStack align="start" spacing={4}>
@@ -50,7 +51,7 @@ const CommentSection = () => {
       {/* Main Comments */}
       <Comment
         name="Adaline Riley"
-        avatarSrc="/assets/avatar2.svg"
+        avatarSrc={avatar}
         timeAgo="35 mins ago"
         text="Quisque iaculis orci pulvinar lectus eleifend sollicitudin..."
       />
@@ -59,13 +60,13 @@ const CommentSection = () => {
       <Box pl={10} width="full">
         <Comment
           name="Buster Jayden"
-          avatarSrc="/assets/avatar2.svg"
+          avatarSrc={avatar}
           timeAgo="5 mins ago"
           text="Pellentesque quis ultricies mauris, in pretium odio..."
         />
         <Comment
           name="Louisa Triston"
-          avatarSrc="/assets/avatar2.svg"
+          avatarSrc={avatar}
           timeAgo="5 mins ago"
           text="Pellentesque quis ultricies mauris, in pretium odio..."
         />
@@ -73,14 +74,14 @@ const CommentSection = () => {
 
       <Comment
         name="Damon Tucker"
-        avatarSrc="/assets/avatar2.svg"
+        avatarSrc={avatar}
         timeAgo="35 mins ago"
         text="Quisque iaculis orci pulvinar lectus eleifend sollicitudin..."
       />
 
       <Comment
         name="Charlene Cross"
-        avatarSrc="/assets/avatar2.svg"
+        avatarSrc={avatar}
         timeAgo="35 mins ago"
         text="Quisque iaculis orci pulvinar lectus eleifend sollicitudin..."
       />
@@ -89,7 +90,7 @@ const CommentSection = () => {
       <Box pl={10} width="full">
         <Comment
           name="Rafael Frank"
-          avatarSrc="/assets/avatar2.svg"
+          avatarSrc={avatar}
           timeAgo="5 mins ago"
           text="Pellentesque quis ultricies mauris, in pretium odio..."
         />
