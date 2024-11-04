@@ -14,7 +14,7 @@ import { CiFlag1, CiHeart, CiShare2 } from "react-icons/ci";
 import { FaRegCommentDots } from "react-icons/fa";
 import Poll2 from "./components/Poll2";
 import CommentSection from "./components/Comment";
-import mainBanner from "/assets/mainbanner2.svg";
+import mainBanner from "/assets/mainBanner2.svg";
 
 const DetailPage = () => {
   return (
