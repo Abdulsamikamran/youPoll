@@ -180,6 +180,7 @@ const Navbar = () => {
                   variant="ghost"
                   leftIcon={<PiSignOutThin size={20} />}
                   fullWidth
+                  onClick={() => navigate("/login")}
                 >
                   Logout
                 </Button>
