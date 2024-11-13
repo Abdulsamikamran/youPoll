@@ -28,12 +28,12 @@ import avatar5 from "/assets/avatar5.svg";
 import avatar6 from "/assets/avatar6.svg";
 import prev from "/assets/prev.svg";
 import next from "/assets/next.svg";
-import PollHistory from "./components/pollHistory";
+
 import comment from "../../../assets/comment.svg";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import { useNavigate } from "react-router-dom";
+import PollHistory from "./components/pollHistory";
 
-// Pagination component moved to the top level
 const Pagination = ({
   totalPages = 70,
   siblingCount = 2,
@@ -122,7 +122,6 @@ const Pagination = ({
   );
 };
 
-// Profile component
 const Profile = () => {
   const avatars = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6];
   const navigate = useNavigate();
