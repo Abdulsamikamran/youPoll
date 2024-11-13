@@ -20,7 +20,7 @@ import google from "../../../assets/google.png";
 
 const CreateAccount = () => {
   return (
-    <Box bg={"white"}>
+    <Box bg={"white"} w={"full"} h={"100vh"}>
       <Image src={logo} position={"absolute"} top={10} left={10} />
       <Flex
         py={6}

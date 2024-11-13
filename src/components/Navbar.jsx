@@ -27,6 +27,7 @@ import logo from "../../assets/logo.svg";
 import { FiUserCheck } from "react-icons/fi";
 import { CiSettings } from "react-icons/ci";
 import { PiSignOutThin } from "react-icons/pi";
+import avatar from "../../assets/avatar1.svg";
 import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
@@ -152,7 +153,7 @@ const Navbar = () => {
                 cursor={"pointer"}
                 align="center"
               >
-                <Avatar src="assets/avatar2.svg" size="md" />
+                <Avatar src={avatar} size="md" />
                 <Box ml={4}>
                   <Heading as="h3" size="md">
                     Guy Hawkins
