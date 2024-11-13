@@ -24,7 +24,7 @@ import TrendItem from "./components/Trends";
 const Home = () => {
   return (
     <Layout>
-      <Box maxW="1200px" mx="auto">
+      <Box maxW="1400px" py={10} mx="auto">
         <Box
           mb={8}
           p={52}
@@ -59,11 +59,10 @@ const Home = () => {
           mb={8}
           whiteSpace="nowrap"
           sx={{
-            // Custom styles to hide the scrollbar
             "&::-webkit-scrollbar": {
-              display: "none", // For Chrome, Safari, and Opera
+              display: "none",
             },
-            "& scrollbarWidth": "none", // For Firefox
+            "& scrollbarWidth": "none",
           }}
         >
           {Array(9)
@@ -72,13 +71,13 @@ const Home = () => {
               <Box
                 bgImage={sliderImage}
                 key={index}
-                w="210px" // Fixed width to maintain size
+                w="210px"
                 h="140px"
                 p={2}
                 bgPos="center"
                 bgSize="cover"
                 borderRadius="md"
-                flexShrink={0} // Prevent shrinking
+                flexShrink={0}
               >
                 <Heading color="white" size="sm" mb={1} mt={8}>
                   Future of Data

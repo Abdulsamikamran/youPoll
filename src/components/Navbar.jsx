@@ -147,7 +147,11 @@ const Navbar = () => {
               />
             </MenuButton>
             <MenuList p={5}>
-              <Flex align="center">
+              <Flex
+                onClick={() => navigate("/profile")}
+                cursor={"pointer"}
+                align="center"
+              >
                 <Avatar src="assets/avatar2.svg" size="md" />
                 <Box ml={4}>
                   <Heading as="h3" size="md">
@@ -162,7 +166,6 @@ const Navbar = () => {
                   fontWeight={"normal"}
                   variant="ghost"
                   leftIcon={<FiUserCheck size={20} />}
-                  fullWidth
                 >
                   Edit Profile
                 </Button>
@@ -170,7 +173,6 @@ const Navbar = () => {
                   fontWeight={"normal"}
                   variant="ghost"
                   leftIcon={<CiSettings size={20} />}
-                  fullWidth
                 >
                   Settings
                 </Button>
@@ -179,7 +181,6 @@ const Navbar = () => {
                   fontWeight={"normal"}
                   variant="ghost"
                   leftIcon={<PiSignOutThin size={20} />}
-                  fullWidth
                   onClick={() => navigate("/login")}
                 >
                   Logout

@@ -11,6 +11,15 @@ const theme = extendTheme({
     heading: "Poppins",
     body: "Poppins",
   },
+  sizes: {
+    container: {
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1900px",
+    },
+  },
   styles: {
     global: {
       body: {

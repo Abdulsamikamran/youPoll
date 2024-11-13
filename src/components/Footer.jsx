@@ -21,7 +21,7 @@ const Footer = () => {
       justifyContent="center"
       alignItems="center"
     >
-      <Flex justifyContent="space-between" maxW="1200px" w="full">
+      <Flex justifyContent="space-between" maxW="1600px" w="full">
         <HStack alignItems={"start"} spacing={20}>
           <VStack spacing={4} align="flex-start" p={4}>
             <Heading mb={10} size="md">

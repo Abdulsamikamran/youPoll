@@ -39,6 +39,7 @@ const PostCard = ({
   };
   const navigate = useNavigate();
   const avatars = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6];
+
   return (
     <Box
       mb={8}
@@ -98,7 +99,7 @@ const PostCard = ({
       <Text color="gray.400" fontSize="14px">
         Make a choice:
       </Text>
-      <Poll /> {/* Assuming Poll is a custom component */}
+      <Poll />
       <Flex
         w="full"
         py={6}
