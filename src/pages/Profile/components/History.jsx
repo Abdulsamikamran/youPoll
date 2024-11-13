@@ -2,7 +2,7 @@ import React from "react";
 import PollCard from "./PollCard";
 import { Flex } from "@chakra-ui/react";
 
-const PollHistory = () => {
+const History = () => {
   return (
     <Flex direction={"column"} gap={10}>
       <PollCard />
@@ -11,4 +11,4 @@ const PollHistory = () => {
   );
 };
 
-export default PollHistory;
+export default History;
