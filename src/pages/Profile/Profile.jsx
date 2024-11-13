@@ -32,7 +32,7 @@ import next from "/assets/next.svg";
 import comment from "../../../assets/comment.svg";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import { useNavigate } from "react-router-dom";
-import PollHistory from "./components/pollHistory";
+import PollHistory from "./components/PollHistory";
 
 const Pagination = ({
   totalPages = 70,
@@ -264,10 +264,10 @@ const Profile = () => {
                 </TabList>
 
                 <TabPanels>
-                  <TabPanel w={"full"}>
+                  <TabPanel p={0} w={"full"}>
                     <PollHistory />
                   </TabPanel>
-                  <TabPanel w={"full"}>helo22o</TabPanel>
+                  <TabPanel w={"full"}>hello</TabPanel>
                 </TabPanels>
               </Tabs>
               <Pagination />
