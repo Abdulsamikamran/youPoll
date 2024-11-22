@@ -14,23 +14,27 @@ import Layout from "../../layout";
 import avatar from "/assets/avatar2.svg";
 import sliderImage from "/assets/sliderImage.svg";
 import mainBanner from "/assets/mainBanner.svg";
+import mainBannerMobile from "/assets/mainBannerMobile.svg";
 import banner1 from "/assets/image1.png";
 import verified from "/assets/verified.svg";
 import banner2 from "/assets/banner1.svg";
 import { MdKeyboardArrowDown } from "react-icons/md";
 
-import PostCard from "./components/PostCard";
+import PostCard from "../../components/PostCard";
 import TrendItem from "./components/Trends";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
   return (
     <Layout>
-      <Box maxW="1400px" py={10} mx="auto">
+      <Box maxW="1400px" py={{ base: 3, md: 10 }} mx="auto">
         <Box
-          mb={8}
-          p={52}
+          mb={{ base: 14, md: 8 }}
+          p={{ base: 14, md: 52 }}
           w={"full"}
-          bgImage={mainBanner}
+          h={{ base: "400px", md: "full" }}
+          bgImage={{ base: mainBannerMobile, md: mainBanner }}
           bgColor={"brand.100"}
           bgSize="cover"
           bgPos="center"
@@ -38,21 +42,38 @@ const Home = () => {
           textAlign="center"
         >
           <Text
-            lineHeight={"63.48px"}
-            fontWeight={700}
-            fontSize={"48.8px"}
+            px={16}
+            lineHeight={{ base: "30px", md: "63.48px" }}
+            fontWeight={{ base: 600, md: 700 }}
+            fontSize={{ base: 24, md: "48.8px" }}
             mb={4}
           >
             The Snap Pixel: How It Works and How to Install
           </Text>
-          <Text fontSize={"20px"}>
+          <Text fontSize={{ base: 14, md: "20px" }}>
             Let’s make your work more organized and easily using the Taskio
             Dashboard with many of the latest features in managing work every
             day.
           </Text>
+          <Button
+            display={{ base: "inline-block", md: "none" }}
+            mt={4}
+            variant="solid"
+            bgColor={"brand.100 "}
+            _hover={{ bgColor: "red.500" }}
+            color={"white"}
+            size="lg"
+            onClick={() => navigate("/create-poll")}
+            fontSize="md"
+            fontWeight="semibold"
+            rounded={"200px"}
+          >
+            Create Poll
+          </Button>
         </Box>
 
         <Flex
+          px={{ base: "10px", md: 0 }}
           mt={-20}
           gap={4}
           overflowY="hidden"
@@ -100,7 +121,7 @@ const Home = () => {
               </Box>
             ))}
         </Flex>
-        <Flex fontWeight={"semibold"} fontSize={14} mb={5} gap={2}>
+        <Flex fontWeight={"semibold"} ml={5} fontSize={14} mb={5} gap={2}>
           <Flex align={"center"} gap={1}>
             <Text>Trending</Text>
             <MdKeyboardArrowDown />

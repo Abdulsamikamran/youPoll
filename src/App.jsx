@@ -12,8 +12,8 @@ import Profile from "./pages/Profile/Profile";
 import ProfileSettings from "./pages/ProfileSettings/ProfileSettings";
 import Comments from "./pages/Comments/Comments";
 import Bookmarks from "./pages/Bookmarks/Bookmarks";
-import Notifications from "./Notifications/Notifications";
 import Interests from "./pages/auth/Interests";
+import Notifications from "./pages/Notifications/Notifications";
 
 const App = () => {
   return (

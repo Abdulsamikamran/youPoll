@@ -14,7 +14,6 @@ import {
   Tabs,
   Text,
 } from "@chakra-ui/react";
-
 import { IoSettingsOutline } from "react-icons/io5";
 import { IoMdNotificationsOutline } from "react-icons/io";
 import lock from "../../../assets/lock.svg";

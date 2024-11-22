@@ -18,10 +18,10 @@ import {
   FaCommentDots,
   FaRegCommentDots,
 } from "react-icons/fa";
-import SidebarMenu from "../pages/ProfileSettings/components/SidebarMenu";
-import Layout from "../layout";
-import avatar from "../../assets/avatar5.svg";
-import time from "../../assets/time.svg";
+import SidebarMenu from "../ProfileSettings/components/SidebarMenu";
+import Layout from "../../layout";
+import avatar from "../../../assets/avatar5.svg";
+import time from "../../../assets/time.svg";
 
 import { IoMdNotificationsOutline } from "react-icons/io";
 import { AiOutlineLike } from "react-icons/ai";

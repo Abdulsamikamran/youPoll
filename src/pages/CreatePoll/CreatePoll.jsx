@@ -238,7 +238,10 @@ const CreatePoll = () => {
                 Settings
               </Text>
 
-              <Flex gap={10}>
+              <Flex
+                flexDirection={{ base: "column", md: "row" }}
+                gap={{ base: 3, md: 10 }}
+              >
                 <Flex direction="column" gap={4} w={"full"}>
                   <Flex justifyContent={"space-between"} alignItems="center">
                     <Text>Close poll on a schedule date</Text>
