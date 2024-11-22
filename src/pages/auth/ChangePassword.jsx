@@ -15,6 +15,7 @@ import {
 import React, { useState } from "react";
 import logo from "../../../assets/logo.svg";
 import CustomStepper from "./components/CustomStepper";
+import CustomInput from "../../components/CustomInput";
 
 const steps = [
   { description: "Login Process" },
@@ -25,8 +26,13 @@ const steps = [
 const ChangePassword = () => {
   const [activeStep, setActiveStep] = useState(0);
   return (
-    <Box w={"full"} h={"100vh"} bgColor={"white"}>
-      <Image src={logo} position={"absolute"} top={10} left={10} />
+    <Box w={"full"} px={6} h={"100vh"} bgColor={"white"}>
+      <Image
+        src={logo}
+        position={"absolute"}
+        top={{ base: 2, md: 10 }}
+        left={{ base: 2, md: 10 }}
+      />{" "}
       <Flex direction={"column"} alignItems={"center"} pt={6}>
         <CustomStepper
           steps={steps}
@@ -37,7 +43,7 @@ const ChangePassword = () => {
           mt={16}
           gap={2}
           direction={"column"}
-          w={"500px"}
+          maxW={"500px"}
           alignItems={"center"}
           justifyContent={"center"}
         >
@@ -57,43 +63,30 @@ const ChangePassword = () => {
             <FormLabel fontSize={"18px"} htmlFor="password">
               New Password
             </FormLabel>
-            <Input
+            <CustomInput
+              variant="redOutline"
               py={6}
               id="password"
               type="password"
               placeholder="Min. 8 characters"
-              variant="outline"
               rounded={"200px"}
-              _focus={{ borderColor: "#FF5A5E", boxShadow: "none" }}
-              borderColor={useColorModeValue("gray.300", "gray.600")}
             />
           </FormControl>
           <FormControl mt={6}>
             <FormLabel fontSize={"18px"} htmlFor="password">
               Confirm New Password
             </FormLabel>
-            <Input
+            <CustomInput
+              variant="redOutline"
               py={6}
               id="password"
               type="password"
               placeholder="Min. 8 characters"
-              variant="outline"
               rounded={"200px"}
-              _focus={{ borderColor: "#FF5A5E", boxShadow: "none" }}
-              borderColor={useColorModeValue("gray.300", "gray.600")}
             />
           </FormControl>
           <HStack w={"full"} justify="space-between">
-            <Checkbox
-              _checked={{
-                "& .chakra-checkbox__control": {
-                  background: "#FF5A5E",
-                  border: "none",
-                  outline: "none",
-                },
-              }}
-              defaultChecked
-            >
+            <Checkbox colorScheme="red" defaultChecked>
               <Text
                 fontSize="sm"
                 color={useColorModeValue("gray.500", "gray.400")}
@@ -105,8 +98,7 @@ const ChangePassword = () => {
           <Button
             mt={10}
             variant="solid"
-            bgColor={"brand.100 "}
-            color={"white"}
+            colorScheme="red"
             size="lg"
             w={"full"}
             fontSize="md"

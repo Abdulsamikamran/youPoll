@@ -25,6 +25,8 @@ import avatar3 from "/assets/avatar3.svg";
 import avatar4 from "/assets/avatar4.svg";
 import avatar5 from "/assets/avatar5.svg";
 import avatar6 from "/assets/avatar6.svg";
+import repost from "/assets/repost.svg";
+
 import { CiFlag1, CiShare2, CiBookmark } from "react-icons/ci";
 import Poll3 from "../../Profile/components/Poll3";
 
@@ -172,8 +174,8 @@ const PollCard2 = () => {
                     <Text>12</Text>
                   </HStack>
                   <HStack>
-                    <Icon as={CiFlag1} />
-                    <Text>Report</Text>
+                    <Image src={repost} />
+                    <Text>Repost</Text>
                   </HStack>
                 </Flex>
               </Flex>

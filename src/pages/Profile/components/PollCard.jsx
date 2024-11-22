@@ -22,6 +22,8 @@ import avatar3 from "/assets/avatar3.svg";
 import avatar4 from "/assets/avatar4.svg";
 import avatar5 from "/assets/avatar5.svg";
 import avatar6 from "/assets/avatar6.svg";
+import repost from "/assets/repost.svg";
+
 import { CiFlag1, CiShare2, CiBookmark } from "react-icons/ci";
 
 const PollCard = () => {
@@ -30,7 +32,7 @@ const PollCard = () => {
     <Box w={"full"}>
       <Flex rounded={"lg"} p={10} align={"start"} boxShadow={"md"}>
         <Image src={poll} />
-        <Box px={10} w={"full"}>
+        <Box px={6} w={"full"}>
           <Flex w={"full"} justifyContent={"space-between"}>
             <Flex gap={3} align={"start"} mb={2} mt={-4}>
               <Image src={avatar} w={"60px"} />
@@ -82,7 +84,7 @@ const PollCard = () => {
           </Text>
           <Poll3 />
           <Flex
-            mt={4}
+            mt={6}
             w="100%"
             h="100%"
             p={2}
@@ -131,8 +133,8 @@ const PollCard = () => {
                     <Text>12</Text>
                   </HStack>
                   <HStack>
-                    <Icon as={CiFlag1} />
-                    <Text>Report</Text>
+                    <Image src={repost} />
+                    <Text>Repost</Text>
                   </HStack>
                 </Flex>
               </Flex>

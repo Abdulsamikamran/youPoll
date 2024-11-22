@@ -126,7 +126,7 @@ const Poll2 = () => {
                 <Progress
                   sx={{
                     "& > div": {
-                      backgroundColor: colors[option], // Dynamic color
+                      backgroundColor: "brand.100", // Dynamic color
                     },
                   }}
                   size="lg"

@@ -1,11 +1,15 @@
 import { Box, Text, Stack, HStack } from "@chakra-ui/react";
 
-const CustomStepper = ({ steps, activeStep, colorScheme = "blue" }) => {
+const CustomStepper = ({ steps, activeStep, colorScheme = "red" }) => {
   return (
-    <HStack mt={6} spacing={2} content="center" align="center">
+    <HStack
+      mt={{ base: 20, md: 6 }}
+      spacing={2}
+      content="center"
+      align="center"
+    >
       {steps.map((step, index) => (
         <HStack content="center" key={index} align="center">
-          {/* Step Indicator */}
           <Stack position={"relative"} alignItems={"center"}>
             <Box
               px={2}
@@ -17,9 +21,9 @@ const CustomStepper = ({ steps, activeStep, colorScheme = "blue" }) => {
             <Text
               position={"absolute"}
               top={6}
-              left={"-50px"}
-              w={"150px"}
-              fontSize="13px"
+              left={{ base: "-30px", md: "-50px" }}
+              w={{ base: "90px", md: "150px" }}
+              fontSize={{ base: "9px", lg: "13px" }}
               color={index <= activeStep ? "black" : "gray.500"}
               textAlign="start"
             >
@@ -29,7 +33,7 @@ const CustomStepper = ({ steps, activeStep, colorScheme = "blue" }) => {
 
           {index < steps.length - 1 && (
             <Box
-              w="150px"
+              w={{ base: "120px", md: "150px" }}
               h="2px"
               bg={index < activeStep ? colorScheme : "gray.300"}
             />

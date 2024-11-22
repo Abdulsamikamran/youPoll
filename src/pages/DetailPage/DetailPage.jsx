@@ -15,6 +15,8 @@ import { FaRegCommentDots } from "react-icons/fa";
 import Poll2 from "./components/Poll2";
 import CommentSection from "./components/Comment";
 import mainBanner from "/assets/mainBanner2.svg";
+import repost from "/assets/repost.svg";
+import clock from "/assets/clock.svg";
 
 const DetailPage = () => {
   return (
@@ -35,34 +37,56 @@ const DetailPage = () => {
                 optio laborum?
               </Text>
             </Stack>
-            <Flex flex={0.3} gap={4}>
-              <HStack spacing={2}>
-                <Icon as={CiHeart} color="gray.500" />
-                <Text fontSize="sm" color="gray.500">
-                  470
-                </Text>
-                <Text fontSize="sm" color="gray.500">
-                  Likea
-                </Text>
-              </HStack>
-              <HStack spacing={2}>
-                <Icon as={FaRegCommentDots} color="gray.500" />
-                <Text fontSize="sm" color="gray.500">
-                  76
-                </Text>
-                <Text fontSize="sm" color="gray.500">
-                  Comments
-                </Text>
-              </HStack>
-              <HStack spacing={2}>
-                <Icon as={CiShare2} color="gray.500" />
-                <Text fontSize="sm" color="gray.500">
-                  18
-                </Text>
-                <Text fontSize="sm" color="gray.500">
-                  Shares
-                </Text>
-              </HStack>
+            <Flex flex={0.4} direction={"column"} gap={2} align={"flex-end"}>
+              <Flex
+                mb={3}
+                gap={1}
+                align={"center"}
+                rounded={"md"}
+                bg={"brand.100"}
+                color={"white"}
+                py={4}
+                px={2}
+              >
+                <Image w={5} src={clock} />
+                <Text fontWeight={"semibold"}>Ending Soon: </Text>
+                <Text>48:00:00</Text>
+              </Flex>
+              <Flex flex={0.3} gap={4}>
+                <HStack>
+                  <Image src={repost} />
+                  <Text fontSize="sm" color="gray.500">
+                    Repost
+                  </Text>
+                </HStack>
+                <HStack>
+                  <Icon as={CiHeart} color="gray.500" />
+                  <Text fontSize="sm" color="gray.500">
+                    470
+                  </Text>
+                  <Text fontSize="sm" color="gray.500">
+                    Likes
+                  </Text>
+                </HStack>
+                <HStack>
+                  <Icon as={FaRegCommentDots} color="gray.500" />
+                  <Text fontSize="sm" color="gray.500">
+                    76
+                  </Text>
+                  <Text fontSize="sm" color="gray.500">
+                    Comments
+                  </Text>
+                </HStack>
+                <HStack>
+                  <Icon as={CiShare2} color="gray.500" />
+                  <Text fontSize="sm" color="gray.500">
+                    18
+                  </Text>
+                  <Text fontSize="sm" color="gray.500">
+                    Shares
+                  </Text>
+                </HStack>
+              </Flex>
             </Flex>
           </Flex>
           <Box bg={"white"} p={6} border={"2px solid orange"}>

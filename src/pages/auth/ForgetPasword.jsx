@@ -14,6 +14,7 @@ import React, { useState } from "react";
 import logo from "../../../assets/logo.svg";
 import CustomStepper from "./components/CustomStepper";
 import { useNavigate } from "react-router-dom";
+import CustomInput from "../../components/CustomInput";
 
 const steps = [
   { description: "Login Process" },
@@ -29,19 +30,24 @@ const ForgetPasword = () => {
   };
 
   return (
-    <Box w={"full"} h={"100vh"} bgColor={"white"}>
-      <Image src={logo} position={"absolute"} top={10} left={10} />
+    <Box w={"full"} px={6} h={"100vh"} bgColor={"white"}>
+      <Image
+        src={logo}
+        position={"absolute"}
+        top={{ base: 2, md: 10 }}
+        left={{ base: 2, md: 10 }}
+      />
       <Flex direction={"column"} alignItems={"center"} pt={6}>
         <CustomStepper
           steps={steps}
           activeStep={activeStep}
-          colorScheme="#FF5A5E"
+          colorScheme="red"
         />
         <Flex
           mt={16}
           gap={2}
           direction={"column"}
-          w={"500px"}
+          maxW={"500px"}
           alignItems={"center"}
           justifyContent={"center"}
         >
@@ -61,22 +67,19 @@ const ForgetPasword = () => {
             <FormLabel fontSize={"18px"} htmlFor="email">
               Email Address
             </FormLabel>
-            <Input
+            <CustomInput
+              variant="redOutline"
               py={6}
               id="email"
               type="email"
               placeholder="Your email"
-              variant="outline"
               rounded={"200px"}
-              _focus={{ borderColor: "#FF5A5E", boxShadow: "none" }}
-              borderColor={useColorModeValue("gray.300", "gray.600")}
             />
           </FormControl>
           <Button
             mt={40}
             variant="solid"
-            bgColor={"brand.100 "}
-            color={"white"}
+            colorScheme="red"
             size="lg"
             w={"full"}
             fontSize="md"

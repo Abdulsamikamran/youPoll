@@ -1,15 +1,38 @@
-import { Box, Flex, Container } from "@chakra-ui/react";
+import { Box, Flex, Container, Text } from "@chakra-ui/react";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import theme from "./theme";
+import MobileNav from "./components/MobileNav";
 
 const Layout = ({ children }) => {
   return (
-    <Flex direction="column" minH="100vh">
-      <Navbar />
+    <Flex position={"relative"} direction="column" minH="100vh">
+      <Box display={{ base: "none", md: "block" }}>
+        <Navbar />
+      </Box>
+
+      <Box display={{ base: "block", md: "none" }}>
+        <MobileNav />
+      </Box>
 
       <Box flex="1">{children}</Box>
+      {/* <Flex
+        w={"full"}
+        h={"90px"}
+        justify={"space-between"}
+        position={"fixed"}
+        zIndex={2}
+        bottom={0}
+        display={{ base: "flex", md: "hidden" }}
+        bg={"white"}
+        p={4}
+      >
+        <Text>Home</Text>
+        <Text> Create Poll</Text>
+        <Text>Search</Text>
+        <Text>Profile</Text>
+      </Flex> */}
 
       <Footer />
     </Flex>

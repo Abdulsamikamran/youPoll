@@ -35,13 +35,6 @@ const Poll3 = () => {
       setHasVoted(true);
     }
   };
-  const colors = {
-    "Super easy": "green.400",
-    "Somewhat easy": "yellow.400",
-    Moderate: "purple",
-    "Quite difficult": "maroon",
-    "Very difficult": "#FF5A5E",
-  };
 
   return (
     <Box mx="auto" bg="white">
@@ -92,7 +85,7 @@ const Poll3 = () => {
                 <Progress
                   sx={{
                     "& > div": {
-                      backgroundColor: colors[option], // Replace with your desired color
+                      backgroundColor: "brand.100", // Replace with your desired color
                     },
                   }}
                   size="lg"

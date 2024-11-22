@@ -22,6 +22,7 @@ import { useState } from "react";
 import logo from "../../../assets/logo.svg";
 import google from "../../../assets/google.png";
 import { useNavigate } from "react-router-dom";
+import CustomInput from "../../components/CustomInput";
 const steps = [
   { description: "Login Process" },
   { description: "2 step Verification" },
@@ -39,10 +40,16 @@ function Login() {
   const prevStep = () => setActiveStep((prev) => Math.max(prev - 1, 0));
 
   return (
-    <Box bg={"white"} w={"full"} h={"100vh"}>
-      <Image src={logo} position={"absolute"} top={10} left={10} />
+    <Box bg={"white"} px={6} w={"full"} h={"100vh"}>
+      <Image
+        src={logo}
+        position={"absolute"}
+        top={{ base: 2, md: 10 }}
+        left={{ base: 2, md: 10 }}
+      />
       <Flex
-        py={6}
+        // bg={"white"}
+        py={{ base: 0, md: 6 }}
         w={"full"}
         gap={3}
         direction={"column"}
@@ -52,14 +59,14 @@ function Login() {
         <CustomStepper
           steps={steps}
           activeStep={activeStep}
-          colorScheme="#FF5A5E"
+          colorScheme="red"
         />
 
         <Flex
-          mt={16}
+          mt={{ base: 8, md: 16 }}
           gap={6}
           direction={"column"}
-          w={"500px"}
+          maxW={"500px"}
           alignItems={"center"}
           justifyContent={"center"}
         >
@@ -73,7 +80,7 @@ function Login() {
           </Heading>
           <Text
             textAlign={"center"}
-            w={"400px"}
+            maxW={"400px"}
             fontSize="16px"
             color="brand.900"
           >
@@ -85,46 +92,33 @@ function Login() {
             <FormLabel fontSize={"18px"} htmlFor="email">
               Email Address
             </FormLabel>
-            <Input
+            <CustomInput
+              variant="redOutline"
+              rounded={"200px"}
+              placeholder="Your email"
               py={6}
               id="email"
               type="email"
-              placeholder="Your email"
-              rounded={"200px"}
-              variant="outline"
-              _focus={{ borderColor: "#FF5A5E", boxShadow: "none" }}
-              borderColor={useColorModeValue("gray.300", "gray.600")}
             />
           </FormControl>
           <FormControl>
             <FormLabel htmlFor="password">Password</FormLabel>
-            <Input
+            <CustomInput
+              variant="redOutline"
               py={6}
               id="password"
               type="password"
               placeholder="Your password"
-              variant="outline"
               rounded={"200px"}
-              _focus={{ borderColor: "#FF5A5E", boxShadow: "none" }}
-              borderColor={useColorModeValue("gray.300", "gray.600")}
             />
           </FormControl>
           <Flex w={"full"} justifyContent={"end"}>
-            <Link fontSize="14px" color="brand.100" href="/forgetPassword">
+            <Link fontSize="14px" color="red" href="/forgetPassword">
               Forgot password?
             </Link>
           </Flex>
           <HStack w={"full"} justify="space-between">
-            <Checkbox
-              _checked={{
-                "& .chakra-checkbox__control": {
-                  background: "#FF5A5E",
-                  border: "none",
-                  outline: "none",
-                },
-              }}
-              defaultChecked
-            >
+            <Checkbox colorScheme="red" defaultChecked>
               <Text
                 fontSize="sm"
                 color={useColorModeValue("gray.500", "gray.400")}
@@ -136,8 +130,7 @@ function Login() {
           <Button
             w={"full"}
             variant="solid"
-            bgColor={"brand.100 "}
-            color={"white"}
+            colorScheme="red"
             size="lg"
             fontSize="md"
             fontWeight="bold"
@@ -174,7 +167,7 @@ function Login() {
           </Button>
           <Flex gap={2} mt={2} justifyContent={"center"}>
             <> Not registered yet?</>
-            <Link href="/createAccount" color={"brand.100"}>
+            <Link href="/createAccount" color={"red"}>
               Create an account
             </Link>
           </Flex>

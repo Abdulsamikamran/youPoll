@@ -3,7 +3,7 @@ import { extendTheme } from "@chakra-ui/react";
 const theme = extendTheme({
   colors: {
     brand: {
-      100: "#FF5A5E",
+      100: "#e52000",
       900: "#9B9B9B",
     },
   },
@@ -23,7 +23,7 @@ const theme = extendTheme({
   styles: {
     global: {
       body: {
-        bg: "gray.100",
+        bg: "white",
         color: "gray.800",
         fonts: "Poppins",
       },

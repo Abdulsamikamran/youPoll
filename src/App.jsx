@@ -13,6 +13,7 @@ import ProfileSettings from "./pages/ProfileSettings/ProfileSettings";
 import Comments from "./pages/Comments/Comments";
 import Bookmarks from "./pages/Bookmarks/Bookmarks";
 import Notifications from "./Notifications/Notifications";
+import Interests from "./pages/auth/Interests";
 
 const App = () => {
   return (
@@ -25,6 +26,7 @@ const App = () => {
         <Route path="/forgetPassword" element={<ForgetPasword />} />
         <Route path="/changePassword" element={<ChangePassword />} />
         <Route path="/createAccount" element={<CreateAccount />} />
+        <Route path="/interest" element={<Interests />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/settings" element={<ProfileSettings />} />
         <Route path="/comments" element={<Comments />} />

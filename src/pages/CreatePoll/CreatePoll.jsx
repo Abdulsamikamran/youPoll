@@ -20,11 +20,13 @@ import {
   InputRightElement,
   Flex,
   Image,
+  InputLeftElement,
 } from "@chakra-ui/react";
 import { AddIcon, CloseIcon } from "@chakra-ui/icons";
 import { useState } from "react";
 import Layout from "../../layout";
 import calender from "/assets/calender.svg";
+import tick from "/assets/redtick.svg";
 
 const CreatePoll = () => {
   const [options, setOptions] = useState(["Option 1", "Option 2"]);
@@ -39,7 +41,7 @@ const CreatePoll = () => {
 
   const inputStyles = {
     variant: "outline",
-    _focus: { borderColor: "#FF5A5E", boxShadow: "none" },
+    _focus: { borderColor: "brand.100", boxShadow: "none" },
     borderColor: useColorModeValue("gray.300", "gray.600"),
     rounded: "md",
     h: 10,
@@ -119,22 +121,27 @@ const CreatePoll = () => {
                     <FormLabel
                       fontSize={"14px"}
                       fontWeight={"normal"}
-                      htmlFor="email"
+                      htmlFor="pollType"
                     >
                       Poll type
                     </FormLabel>
-                    <Select
-                      maxW={"300px"}
-                      placeholder="Multiple choice"
-                      size="sm"
-                      rounded={"md"}
-                      h={10}
-                      {...inputStyles}
-                    >
-                      <option>Single choice</option>
-                      <option>Multiple choice</option>
-                    </Select>
+                    <InputGroup maxW={"300px"}>
+                      <InputLeftElement pointerEvents="none">
+                        {/* <Image src={tick} alt="Tick Icon" /> */}
+                      </InputLeftElement>
+                      <Select
+                        // _chakra-select={{ paddingLeft: "120px" }}
+                        size="sm"
+                        rounded={"md"}
+                        h={10}
+                        {...inputStyles}
+                      >
+                        <option>Single choice</option>
+                        <option>Multiple choice</option>
+                      </Select>
+                    </InputGroup>
                   </FormControl>
+
                   <Text
                     w={"80px"}
                     whiteSpace={"nowrap"}
@@ -231,100 +238,28 @@ const CreatePoll = () => {
                 Settings
               </Text>
 
-              <Flex gap={4}>
-                <Flex direction="column" gap={4} flex={0.5}>
-                  <Flex justifyContent={"space-between"} alignItems="center">
-                    <Text>Allow selection of multiple options</Text>
-                    <Switch colorScheme="red" />
-                  </Flex>
-                  <Flex justifyContent={"space-between"} alignItems="center">
-                    <Text>Require participant names</Text>
-                    <Switch colorScheme="red" />
-                  </Flex>
-                  <Text color={"brand.100"} mt={"70px"}>
-                    Show advanced settings
-                  </Text>
+              <Flex gap={10}>
+                <Flex direction="column" gap={4} w={"full"}>
                   <Flex justifyContent={"space-between"} alignItems="center">
                     <Text>Close poll on a schedule date</Text>
                     <Switch colorScheme="red" />
                   </Flex>
+
                   <InputGroup size="sm">
                     <Input
                       {...inputStyles}
-                      type="text"
+                      type="date"
                       placeholder="mm/dd/yyyy"
                       size="sm"
                     />
-                    <InputRightElement children={<Image src={calender} />} />
                   </InputGroup>
-                  <Flex justifyContent={"space-between"} alignItems="center">
-                    <Text>Allow comments</Text>
-                    <Switch colorScheme="red" />
-                  </Flex>
-                  <Flex justifyContent={"space-between"} alignItems="center">
-                    <Text>Hide share button</Text>
-                    <Switch colorScheme="red" />
-                  </Flex>
                 </Flex>
-                <Divider orientation="vertical" height="150px" />
-                <Flex direction="column" gap={4} flex={0.5}>
-                  <Flex
-                    justifyContent={"space-between"}
-                    alignItems="center"
-                    gap={2}
-                  >
-                    <Text>Voting security</Text>
-                    <Text color="#FF5A5E" size="sm">
-                      Learn more
-                    </Text>
-                  </Flex>
-                  <InputGroup size="sm">
-                    <Input
-                      {...inputStyles}
-                      type="text"
-                      placeholder="One vote per users account"
-                      size="sm"
-                    />
-                  </InputGroup>
-                  <Flex
-                    justifyContent={"space-between"}
-                    alignItems="center"
-                    py={8}
-                  >
-                    <Text>Block VPN users</Text>
-                    <Switch colorScheme="red" />
-                  </Flex>
+                <Flex w={"full"}>
                   <FormControl>
-                    <FormLabel
-                      fontSize={"14px"}
-                      fontWeight={"normal"}
-                      htmlFor="email"
-                    >
-                      Read Visibility
-                    </FormLabel>
-                    <Select
-                      maxW={"300px"}
-                      placeholder="Always public"
-                      size="sm"
-                      rounded={"md"}
-                      h={10}
-                      {...inputStyles}
-                    >
-                      <option>Education</option>
-                      <option>Business</option>
-                      <option>Sports</option>
-                    </Select>
-                  </FormControl>
-                  <FormControl>
-                    <FormLabel
-                      fontSize={"14px"}
-                      fontWeight={"normal"}
-                      htmlFor="email"
-                    >
+                    <FormLabel mb={4} fontWeight={"normal"} htmlFor="email">
                       Edit vote permissions
                     </FormLabel>
                     <Select
-                      maxW={"300px"}
                       placeholder="Nobody"
                       size="sm"
                       rounded={"md"}

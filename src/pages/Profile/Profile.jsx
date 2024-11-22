@@ -28,99 +28,16 @@ import avatar5 from "/assets/avatar5.svg";
 import avatar6 from "/assets/avatar6.svg";
 import prev from "/assets/prev.svg";
 import next from "/assets/next.svg";
-
-import comment from "../../../assets/comment.svg";
+import { LiaChartBarSolid } from "react-icons/lia";
+import { PiUsersLight } from "react-icons/pi";
+import { FaRegCommentDots } from "react-icons/fa6";
 import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import { useNavigate } from "react-router-dom";
 import History from "./components/History";
-
-const Pagination = ({
-  totalPages = 70,
-  siblingCount = 2,
-  currentPage = 1,
-  onPageChange,
-}) => {
-  const [page, setPage] = useState(currentPage);
-
-  const handleChangePage = (newPage) => {
-    setPage(newPage);
-    onPageChange && onPageChange(newPage);
-  };
-
-  const generatePages = () => {
-    const pages = [];
-    const start = Math.max(1, page - siblingCount);
-    const end = Math.min(totalPages, page + siblingCount);
-
-    for (let i = start; i <= end; i++) {
-      pages.push(i);
-    }
-    return pages;
-  };
-
-  return (
-    <HStack
-      w={"full"}
-      color={"gray.300"}
-      justify={"center"}
-      py={8}
-      spacing={5}
-      align="center"
-    >
-      <IconButton
-        w={"60px"}
-        h={"60px"}
-        icon={<Image src={prev} />}
-        isDisabled={page === 1}
-        onClick={() => handleChangePage(page - 3)}
-        aria-label="Previous"
-      />
-      <IconButton
-        w={"60px"}
-        h={"60px"}
-        icon={<ChevronLeftIcon />}
-        isDisabled={page === 1}
-        onClick={() => handleChangePage(page - 1)}
-        aria-label="Previous"
-      />
-      <Button w={"60px"} h={"60px"} bg={"gray.100"}>
-        ...
-      </Button>
-      {generatePages().map((pageNumber) => (
-        <Button
-          w={"60px"}
-          h={"60px"}
-          key={pageNumber}
-          onClick={() => handleChangePage(pageNumber)}
-          bg={page === pageNumber ? "red.400" : "gray.100"}
-          color={page === pageNumber ? "white" : "black"}
-        >
-          {pageNumber}
-        </Button>
-      ))}
-      <Button w={"60px"} h={"60px"} bg={"gray.100"}>
-        ...
-      </Button>
-      <IconButton
-        w={"60px"}
-        h={"60px"}
-        icon={<ChevronRightIcon />}
-        isDisabled={page === totalPages}
-        onClick={() => handleChangePage(page + 1)}
-        aria-label="Next"
-      />
-      <IconButton
-        w={"60px"}
-        h={"60px"}
-        icon={<Image src={next} />}
-        isDisabled={page === totalPages}
-        onClick={() => handleChangePage(page + 3)}
-        aria-label="Next"
-      />
-      <Text>{totalPages} Pages</Text>
-    </HStack>
-  );
-};
+import Followers from "./components/Followers";
+import Following from "./components/Following";
+import Requested from "./components/Requested";
+import Requests from "./components/Requests";
 
 const Profile = () => {
   const avatars = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6];
@@ -197,7 +114,7 @@ const Profile = () => {
                 <Button
                   fontWeight={"normal"}
                   colorScheme="gray"
-                  bgColor={"#08BEAB"}
+                  bgColor={"brand.100"}
                   color={"white"}
                   rounded={"full"}
                 >
@@ -215,6 +132,7 @@ const Profile = () => {
                 </Text>
                 {avatars.map((src, i) => (
                   <Avatar
+                    mb={1}
                     key={i}
                     position="absolute"
                     left={`${0 + 39 * i}px`}
@@ -223,26 +141,27 @@ const Profile = () => {
                     bottom={14}
                   />
                 ))}
-                <Text color={"#08BEAB"} fontWeight={"semibold"}>
+                <Text color={"brand.100"} fontWeight={"semibold"}>
                   View All
                 </Text>
               </Box>
             </Flex>
             <Box w={"full"}>
               <Tabs>
-                <TabList ml={5} py={8} w={"600px"} border={"none"}>
+                <TabList ml={5} py={8} w={"full"} border={"none"}>
                   <Tab
                     py={{ base: 3, lg: 4 }}
                     w={"full"}
                     _selected={{
                       borderBottom: "3px solid",
                       borderColor: "brand.100",
+                      color: "brand.100",
                     }}
                     color="gray.400"
                     fontSize={{ base: 10, md: "sm", lg: "md" }}
                   >
-                    <Flex gap={4}>
-                      <Image src={comment}></Image>
+                    <Flex align={"center"} gap={4}>
+                      <LiaChartBarSolid size={20} />
                       <Text>Poll History</Text>
                     </Flex>
                   </Tab>
@@ -252,13 +171,81 @@ const Profile = () => {
                     _selected={{
                       borderBottom: "3px solid",
                       borderColor: "brand.100",
+                      color: "brand.100",
                     }}
                     color="gray.400"
                     fontSize={{ base: 10, md: "sm", lg: "md" }}
                   >
-                    <Flex gap={4}>
-                      <Image src={comment}></Image>
+                    <Flex align={"center"} gap={4}>
+                      <FaRegCommentDots size={20} />
                       <Text> Comments</Text>
+                    </Flex>
+                  </Tab>
+                  <Tab
+                    py={{ base: 3, lg: 4 }}
+                    w={"full"}
+                    _selected={{
+                      borderBottom: "3px solid",
+                      borderColor: "brand.100",
+                      color: "brand.100",
+                    }}
+                    color="gray.400"
+                    fontSize={{ base: 10, md: "sm", lg: "md" }}
+                  >
+                    <Flex align={"center"} gap={4}>
+                      <PiUsersLight size={20} />
+                      <Text> Followers</Text>
+                    </Flex>
+                  </Tab>
+                  <Tab
+                    py={{ base: 3, lg: 4 }}
+                    w={"full"}
+                    _selected={{
+                      borderBottom: "3px solid",
+                      borderColor: "brand.100",
+                      color: "brand.100",
+                    }}
+                    color="gray.400"
+                    fontSize={{ base: 10, md: "sm", lg: "md" }}
+                  >
+                    <Flex align={"center"} gap={4}>
+                      <PiUsersLight size={20} />
+
+                      <Text> Following</Text>
+                    </Flex>
+                  </Tab>
+                  <Tab
+                    py={{ base: 3, lg: 4 }}
+                    w={"full"}
+                    _selected={{
+                      borderBottom: "3px solid",
+                      borderColor: "brand.100",
+                      color: "brand.100",
+                    }}
+                    color="gray.400"
+                    fontSize={{ base: 10, md: "sm", lg: "md" }}
+                  >
+                    <Flex align={"center"} gap={4}>
+                      <PiUsersLight size={20} />
+
+                      <Text> Requested</Text>
+                    </Flex>
+                  </Tab>
+                  <Tab
+                    py={{ base: 3, lg: 4 }}
+                    w={"full"}
+                    _selected={{
+                      borderBottom: "3px solid",
+                      borderColor: "brand.100",
+                      color: "brand.100",
+                    }}
+                    color="gray.400"
+                    fontSize={{ base: 10, md: "sm", lg: "md" }}
+                  >
+                    <Flex align={"center"} gap={4}>
+                      <PiUsersLight size={20} />
+
+                      <Text> Requests</Text>
                     </Flex>
                   </Tab>
                 </TabList>
@@ -268,9 +255,20 @@ const Profile = () => {
                     <History />
                   </TabPanel>
                   <TabPanel w={"full"}>hello</TabPanel>
+                  <TabPanel w={"full"}>
+                    <Followers />
+                  </TabPanel>
+                  <TabPanel w={"full"}>
+                    <Following />
+                  </TabPanel>
+                  <TabPanel w={"full"}>
+                    <Requested />
+                  </TabPanel>
+                  <TabPanel w={"full"}>
+                    <Requests />
+                  </TabPanel>
                 </TabPanels>
               </Tabs>
-              <Pagination />
             </Box>
           </Flex>
         </Container>

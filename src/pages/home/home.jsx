@@ -17,6 +17,7 @@ import mainBanner from "/assets/mainBanner.svg";
 import banner1 from "/assets/image1.png";
 import verified from "/assets/verified.svg";
 import banner2 from "/assets/banner1.svg";
+import { MdKeyboardArrowDown } from "react-icons/md";
 
 import PostCard from "./components/PostCard";
 import TrendItem from "./components/Trends";
@@ -98,6 +99,16 @@ const Home = () => {
                 </Flex>
               </Box>
             ))}
+        </Flex>
+        <Flex fontWeight={"semibold"} fontSize={14} mb={5} gap={2}>
+          <Flex align={"center"} gap={1}>
+            <Text>Trending</Text>
+            <MdKeyboardArrowDown />
+          </Flex>
+          <Flex align={"center"} gap={1}>
+            <Text>More</Text>
+            <MdKeyboardArrowDown />
+          </Flex>
         </Flex>
 
         <Flex gap={8}>
