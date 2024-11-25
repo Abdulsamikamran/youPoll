@@ -12,6 +12,7 @@ import {
   HStack,
   Text,
   useColorModeValue,
+  Flex,
 } from "@chakra-ui/react";
 
 import { IoEyeOutline, IoEyeOffOutline } from "react-icons/io5";
@@ -56,14 +57,14 @@ const SecuritySettings = () => {
     <Box
       maxW="full"
       mx="auto"
-      p={10}
-      borderWidth={1}
+      p={{ base: 2, md: 10 }}
+      borderWidth={{ base: 0, md: 1 }}
       borderRadius="lg"
       bg="white"
-      px={12}
+      px={{ base: 2, md: 12 }}
       py={10}
     >
-      <VStack align="start" spacing={6}>
+      <VStack align={{ base: "center", md: "start" }} spacing={6}>
         <Text fontSize="2xl" fontWeight="semibold" color={"gray.600"} mb={6}>
           Change Password
         </Text>
@@ -77,13 +78,13 @@ const SecuritySettings = () => {
           placeholder="Confirm New Password"
         />
 
-        <HStack mt={8} spacing={4}>
+        <Flex mt={8} gap={4}>
           <Button
             bgColor="brand.100"
             _hover={{ bgColor: "red.500" }}
             color="white"
             size="lg"
-            px={14}
+            px={{ base: 8, md: 14 }}
             py={7}
             fontSize="md"
           >
@@ -94,13 +95,13 @@ const SecuritySettings = () => {
             _hover={{ bgColor: "gray.400" }}
             color="white"
             size="lg"
-            px={14}
+            px={{ base: 8, md: 14 }}
             py={7}
             fontSize="md"
           >
             Cancel
           </Button>
-        </HStack>
+        </Flex>
       </VStack>
     </Box>
   );

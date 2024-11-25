@@ -22,6 +22,7 @@ import {
   ModalCloseButton,
   ModalBody,
   ModalFooter,
+  Collapse,
 } from "@chakra-ui/react";
 import { BiSolidLike } from "react-icons/bi";
 import { BiSolidComment } from "react-icons/bi";
@@ -62,7 +63,7 @@ const PostCard = ({
   };
   const navigate = useNavigate();
   const avatars = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6];
-
+  const { isOpen: isCollapse, onToggle } = useDisclosure();
   const {
     isOpen: isDeleteOpen,
     onOpen: onDeleteOpen,
@@ -226,20 +227,24 @@ const PostCard = ({
         <Button
           bgColor="brand.100"
           color="white"
+          colorScheme="red"
           fontSize="sm"
           display={{ base: "none", md: "block" }}
           px={2}
           py={2}
           fontWeight="normal"
+          onClick={onToggle}
           rounded="200px"
         >
-          Show Less
+          {isCollapse ? "Show Less" : "See Voting Result"}
         </Button>
       </Flex>
-      <Text color="gray.400" fontSize="14px">
-        Make a choice:
-      </Text>
-      <Poll />
+      <Collapse in={isCollapse} animateOpacity>
+        <Text color="gray.400" fontSize="14px">
+          Make a choice:
+        </Text>
+        <Poll />
+      </Collapse>
       <Flex
         w="full"
         py={6}
@@ -302,7 +307,8 @@ const PostCard = ({
         <Button
           onClick={onVoteOpen}
           bgColor="brand.100"
-          _hover={{ bgColor: "red.500" }}
+          // _hover={{ bgColor: "red.500" }}
+          colorScheme="red"
           color="white"
           size="lg"
           px={{ base: 7, md: 14 }}
@@ -317,8 +323,9 @@ const PostCard = ({
           display={{ base: "block", md: "none" }}
           fontWeight={"semibold"}
           color={"brand.100"}
+          onClick={onToggle}
         >
-          Hide Voting Results
+          {isCollapse ? "Hide Voting Results" : "See Voting Result"}
         </Text>
         <Modal isOpen={isVoteOpen} onClose={onVoteClose} isCentered>
           <ModalOverlay />
@@ -372,7 +379,7 @@ const PostCard = ({
 
           <Flex gap={8} w={"full"} alignItems="center">
             <Text
-              fontSize={"10px"}
+              fontSize={{ base: "10px", md: "16px" }}
               position={{ base: "absolute", md: "relative" }}
               right={2}
             >
@@ -380,19 +387,19 @@ const PostCard = ({
             </Text>
             <HStack display={{ base: "none", md: "flex" }}>
               <Image src={repost} />
-              <Text fontSize="sm" color="gray.500">
+              <Text fontSize={{ base: "10px", md: "16px" }} color="gray.500">
                 Repost
               </Text>
             </HStack>
             <HStack display={{ base: "none", md: "flex" }}>
               <Icon as={CiHeart} color="gray.500" />
-              <Text fontSize="sm" color="gray.500">
+              <Text fontSize={{ base: "10px", md: "16px" }} color="gray.500">
                 32
               </Text>
             </HStack>
             <HStack display={{ base: "none", md: "flex" }}>
               <Icon as={CiShare2} color="gray.500" />
-              <Text fontSize="sm" color="gray.500">
+              <Text fontSize={{ base: "10px", md: "16px" }} color="gray.500">
                 12
               </Text>
             </HStack>

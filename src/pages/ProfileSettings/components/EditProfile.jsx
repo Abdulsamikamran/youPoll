@@ -26,8 +26,17 @@ import background from "../../../../assets/background.svg";
 
 const EditProfile = () => {
   return (
-    <Container maxW="full">
-      <Box bg="white" borderRadius="lg" p={8} boxShadow="md">
+    <Box maxW="full">
+      <Box
+        maxW="full"
+        mx="auto"
+        p={{ base: 2, md: 10 }}
+        borderWidth={{ base: 0, md: 1 }}
+        borderRadius="lg"
+        bg="white"
+        px={{ base: 2, md: 12 }}
+        py={10}
+      >
         <Text fontSize="2xl" fontWeight="semibold" color={"gray.600"} mb={6}>
           Profile Details
         </Text>
@@ -266,8 +275,14 @@ const EditProfile = () => {
         </HStack>
       </Box>
 
-      <Box bg="gray.50" borderRadius="lg" p={8} mt={8} boxShadow="md">
-        <Text fontSize="2xl" fontWeight="normal" mb={4}>
+      <Box
+        bg="gray.50"
+        borderRadius="lg"
+        p={{ base: 2, md: 8 }}
+        mt={8}
+        boxShadow="md"
+      >
+        <Text fontSize={{ base: "lg", md: "2xl" }} fontWeight="normal" mb={4}>
           Background Image
         </Text>
         <Box position={"relative"}>
@@ -292,7 +307,7 @@ const EditProfile = () => {
           </Button>
         </Box>
       </Box>
-    </Container>
+    </Box>
   );
 };
 

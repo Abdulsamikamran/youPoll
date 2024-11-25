@@ -22,7 +22,7 @@ import { NavLink } from "react-router-dom";
 
 const SidebarMenu = () => {
   return (
-    <Box bg="gray.100" p={5} w="300px" borderRadius="md">
+    <Box p={5} w="300px" borderRadius="md">
       <Flex w={"full"} gap={4} align={"center"}>
         <Avatar w="60px" h={"60px"} src={avatar} />
         <Box>

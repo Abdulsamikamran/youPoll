@@ -24,14 +24,16 @@ import SecuritySettings from "./components/SecuritySettings";
 const ProfileSettings = () => {
   return (
     <Layout>
-      <Container py={14} maxW={"1600px"} mx={"auto"}>
+      <Container py={{ base: 2, md: 14 }} maxW={"1600px"} mx={"auto"}>
         <Flex gap={20}>
-          <SidebarMenu />
+          <Box display={{ base: "none", md: "block" }}>
+            <SidebarMenu />
+          </Box>
 
           <Box w={"full"}>
             <Box display="flex" gap={3} fontWeight="medium" fontSize={"16px"}>
               <Icon as={IoSettingsOutline} boxSize={10} color="gray.500" />
-              <Text color="gray.500" fontSize={20} fontWeight={"bold"}>
+              <Text color="gray.500" fontSize={24} fontWeight={"bold"}>
                 Settings
               </Text>
             </Box>

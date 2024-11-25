@@ -77,7 +77,7 @@ const Navbar = () => {
             </Flex>
           </MenuList>
         </Menu>
-        <Image onClick={() => navigate("/")} src={logo} />
+        <Image cursor={"pointer"} onClick={() => navigate("/")} src={logo} />
 
         <HStack spacing={8} color="gray.500" fontSize="sm">
           <Text as="a" href="/">
@@ -110,7 +110,6 @@ const Navbar = () => {
                 />
                 <Input
                   py={6}
-                  // id="search"
                   type="text"
                   placeholder="Search"
                   variant="outline"

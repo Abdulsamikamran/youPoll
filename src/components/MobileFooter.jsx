@@ -8,7 +8,8 @@ const MobileFooter = () => {
       as="footer"
       bg="brand.100"
       color="white"
-      py={20}
+      pt={10}
+      pb={24}
       justifyContent="center"
       alignItems="center"
       flexDirection={"column"}

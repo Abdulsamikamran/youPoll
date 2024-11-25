@@ -14,6 +14,7 @@ import Comments from "./pages/Comments/Comments";
 import Bookmarks from "./pages/Bookmarks/Bookmarks";
 import Interests from "./pages/auth/Interests";
 import Notifications from "./pages/Notifications/Notifications";
+import SearchMobile from "./components/SearchMobile";
 
 const App = () => {
   return (
@@ -32,6 +33,7 @@ const App = () => {
         <Route path="/comments" element={<Comments />} />
         <Route path="/bookmarks" element={<Bookmarks />} />
         <Route path="/notifications" element={<Notifications />} />
+        <Route path="/search" element={<SearchMobile />} />
       </Routes>
     </Router>
   );

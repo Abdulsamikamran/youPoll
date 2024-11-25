@@ -70,16 +70,22 @@ const MobileNav = () => {
           <DrawerBody>
             <List spacing={4}>
               <ListItem>
-                <Link href="#">
-                  <ListIcon mb={"4px"} as={RiHomeLine} color="red.500" />
+                <Text
+                  cursor="pointer"
+                  onClick={() => navigate("/")}
+                  display="flex"
+                  alignItems="center"
+                >
+                  <ListIcon mb="4px" as={RiHomeLine} color="red.500" />
                   Home
-                </Link>
+                </Text>
               </ListItem>
+
               <ListItem>
-                <Link href="#">
+                <Box onClick={() => navigate("profile")}>
                   <ListIcon mb={"4px"} as={FiUsers} color="red.500" />
                   Followers
-                </Link>
+                </Box>
               </ListItem>
 
               <Accordion allowToggle>
@@ -103,7 +109,9 @@ const MobileNav = () => {
                   <AccordionPanel pb={4}>
                     <List spacing={2} ml={4}>
                       <ListItem>
-                        <Link href="#">Trending polls</Link>
+                        <Box onClick={() => navigate("home")}>
+                          Trending polls
+                        </Box>
                       </ListItem>
                     </List>
                   </AccordionPanel>
@@ -139,7 +147,7 @@ const MobileNav = () => {
                         "Education & Careers",
                       ].map((category) => (
                         <ListItem key={category}>
-                          <Link href="#">{category}</Link>
+                          <Box onClick={() => navigate("")}>{category}</Box>
                         </ListItem>
                       ))}
                     </List>
@@ -148,66 +156,66 @@ const MobileNav = () => {
               </Accordion>
 
               <ListItem>
-                <Link href="#">
+                <Box onClick={() => navigate("/profile")}>
                   <ListIcon mb={"4px"} as={FiUser} color="red.500" />
                   Profile
-                </Link>
+                </Box>
               </ListItem>
               <ListItem>
-                <Link href="#">
+                <Box onClick={() => navigate("/settings")}>
                   <ListIcon mb={"4px"} as={IoSettingsOutline} color="red.500" />
                   Settings
-                </Link>
+                </Box>
               </ListItem>
               <ListItem>
-                <Link href="#">
+                <Box onClick={() => navigate("/")}>
                   <ListIcon
                     mb={"4px"}
                     as={BsExclamationCircle}
                     color="red.500"
                   />
                   About Us
-                </Link>
+                </Box>
               </ListItem>
               <ListItem>
-                <Link href="#">
+                <Box onClick={() => navigate("/")}>
                   <ListIcon
                     mb={"4px"}
                     as={HiOutlineUserGroup}
                     color="red.500"
                   />
                   Help and Support
-                </Link>
+                </Box>
               </ListItem>
               <ListItem>
-                <Link href="#">
+                <Box onClick={() => navigate("/")}>
                   <ListIcon mb={"4px"} as={BsQuestionCircle} color="red.500" />
                   FAQs
-                </Link>
+                </Box>
               </ListItem>
               <ListItem>
-                <Link href="#">
+                <Box onClick={() => navigate("/")}>
                   <ListIcon mb={"4px"} as={FiPhone} color="red.500" />
                   Contact Us
-                </Link>
+                </Box>
               </ListItem>
               <ListItem pt={52}>
-                <Link href="#">
+                <Box onClick={() => navigate("/login")}>
                   <ListIcon mb={"4px"} as={BiLogOut} color="red.500" />
                   Logout
-                </Link>
+                </Box>
               </ListItem>
             </List>
 
             <Box mt={10} textAlign="center">
               <Box mt={2} display="flex" justifyContent="center" gap={4}>
-                <Link href="#" color="red.500">
+                <Link onClick={() => navigate("/")} color="red.500">
                   <Image src={facebook} />
                 </Link>
-                <Link href="#" color="red.500">
+                <Link onClick={() => navigate("/")} color="red.500">
                   <Image src={insta} />
                 </Link>
-                <Link href="#" color="red.500">
+                <Link onClick={() => navigate("/")} color="red.500">
                   <Image src={twitter} />
                 </Link>
               </Box>

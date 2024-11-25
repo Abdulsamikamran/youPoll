@@ -15,12 +15,10 @@ import { FaRegCommentDots } from "react-icons/fa";
 import Poll2 from "./components/Poll2";
 import CommentSection from "./components/Comment";
 import avatar from "../../../assets/avatar2.svg";
-
+import banner2 from "../../../assets/banner1.svg";
 import mainBanner from "/assets/mainBanner2.svg";
 import repost from "/assets/repost.svg";
 import clock from "/assets/clock.svg";
-import banner2 from "../../../assets/banner1.svg";
-
 import PostCard from "../../components/PostCard";
 
 const DetailPage = () => {

@@ -53,8 +53,13 @@ const userData = [
 const Following = () => {
   return (
     <Box minH="100vh " w={"full"}>
-      <Flex w={"full"} justifyContent={"flex-end"}>
-        <InputGroup maxW="400px">
+      <Flex
+        w={"full"}
+        py={{ base: 4, md: 0 }}
+        px={3}
+        justifyContent={"flex-end"}
+      >
+        <InputGroup maxW={{ base: "full", md: "400px" }}>
           <InputLeftElement
             pointerEvents="none"
             children={<SearchIcon mt={2} color="gray.300" />}
@@ -71,7 +76,13 @@ const Following = () => {
           />
         </InputGroup>
       </Flex>
-      <SimpleGrid w={"full"} columns={2} spacing={8} mt={2}>
+      <SimpleGrid
+        px={2}
+        w={"full"}
+        columns={{ base: 1, md: 2 }}
+        spacing={8}
+        mt={2}
+      >
         {userData.map(() => (
           <Card buttonText={"Following"} />
         ))}

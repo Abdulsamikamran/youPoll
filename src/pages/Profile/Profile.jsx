@@ -4,8 +4,6 @@ import {
   Button,
   Container,
   Flex,
-  HStack,
-  IconButton,
   Image,
   Stack,
   Tab,
@@ -16,7 +14,7 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import React, { useState } from "react";
+import React from "react";
 import Layout from "../../layout";
 import hero from "../../../assets/hero1.svg";
 import avatar from "../../../assets/avatarProfile.svg";
@@ -26,12 +24,9 @@ import avatar3 from "/assets/avatar3.svg";
 import avatar4 from "/assets/avatar4.svg";
 import avatar5 from "/assets/avatar5.svg";
 import avatar6 from "/assets/avatar6.svg";
-import prev from "/assets/prev.svg";
-import next from "/assets/next.svg";
 import { LiaChartBarSolid } from "react-icons/lia";
 import { PiUsersLight } from "react-icons/pi";
 import { FaRegCommentDots } from "react-icons/fa6";
-import { ChevronLeftIcon, ChevronRightIcon } from "@chakra-ui/icons";
 import { useNavigate } from "react-router-dom";
 import History from "./components/History";
 import Followers from "./components/Followers";
@@ -39,6 +34,40 @@ import Following from "./components/Following";
 import Requested from "./components/Requested";
 import Requests from "./components/Requests";
 import ProfileMobile from "./ProfileMobile";
+import Comment from "../Comments/Comment";
+
+const tabItems = [
+  {
+    label: "Poll History",
+    icon: <LiaChartBarSolid size={20} />,
+    component: <History />,
+  },
+  {
+    label: "Comments",
+    icon: <FaRegCommentDots size={20} />,
+    component: <Comment />,
+  },
+  {
+    label: "Followers",
+    icon: <PiUsersLight size={20} />,
+    component: <Followers />,
+  },
+  {
+    label: "Following",
+    icon: <PiUsersLight size={20} />,
+    component: <Following />,
+  },
+  {
+    label: "Requested",
+    icon: <PiUsersLight size={20} />,
+    component: <Requested />,
+  },
+  {
+    label: "Requests",
+    icon: <PiUsersLight size={20} />,
+    component: <Requests />,
+  },
+];
 
 const Profile = () => {
   const avatars = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6];
@@ -152,127 +181,36 @@ const Profile = () => {
                   </Text>
                 </Box>
               </Flex>
-              <Box w={"full"}>
+              <Box w="full">
                 <Tabs>
-                  <TabList ml={5} py={8} w={"full"} border={"none"}>
-                    <Tab
-                      py={{ base: 3, lg: 4 }}
-                      w={"full"}
-                      _selected={{
-                        borderBottom: "3px solid",
-                        borderColor: "brand.100",
-                        color: "brand.100",
-                      }}
-                      color="gray.400"
-                      fontSize={{ base: 10, md: "sm", lg: "md" }}
-                    >
-                      <Flex align={"center"} gap={4}>
-                        <LiaChartBarSolid size={20} />
-                        <Text>Poll History</Text>
-                      </Flex>
-                    </Tab>
-                    <Tab
-                      py={{ base: 3, lg: 4 }}
-                      w={"full"}
-                      _selected={{
-                        borderBottom: "3px solid",
-                        borderColor: "brand.100",
-                        color: "brand.100",
-                      }}
-                      color="gray.400"
-                      fontSize={{ base: 10, md: "sm", lg: "md" }}
-                    >
-                      <Flex align={"center"} gap={4}>
-                        <FaRegCommentDots size={20} />
-                        <Text> Comments</Text>
-                      </Flex>
-                    </Tab>
-                    <Tab
-                      py={{ base: 3, lg: 4 }}
-                      w={"full"}
-                      _selected={{
-                        borderBottom: "3px solid",
-                        borderColor: "brand.100",
-                        color: "brand.100",
-                      }}
-                      color="gray.400"
-                      fontSize={{ base: 10, md: "sm", lg: "md" }}
-                    >
-                      <Flex align={"center"} gap={4}>
-                        <PiUsersLight size={20} />
-                        <Text> Followers</Text>
-                      </Flex>
-                    </Tab>
-                    <Tab
-                      py={{ base: 3, lg: 4 }}
-                      w={"full"}
-                      _selected={{
-                        borderBottom: "3px solid",
-                        borderColor: "brand.100",
-                        color: "brand.100",
-                      }}
-                      color="gray.400"
-                      fontSize={{ base: 10, md: "sm", lg: "md" }}
-                    >
-                      <Flex align={"center"} gap={4}>
-                        <PiUsersLight size={20} />
-
-                        <Text> Following</Text>
-                      </Flex>
-                    </Tab>
-                    <Tab
-                      py={{ base: 3, lg: 4 }}
-                      w={"full"}
-                      _selected={{
-                        borderBottom: "3px solid",
-                        borderColor: "brand.100",
-                        color: "brand.100",
-                      }}
-                      color="gray.400"
-                      fontSize={{ base: 10, md: "sm", lg: "md" }}
-                    >
-                      <Flex align={"center"} gap={4}>
-                        <PiUsersLight size={20} />
-
-                        <Text> Requested</Text>
-                      </Flex>
-                    </Tab>
-                    <Tab
-                      py={{ base: 3, lg: 4 }}
-                      w={"full"}
-                      _selected={{
-                        borderBottom: "3px solid",
-                        borderColor: "brand.100",
-                        color: "brand.100",
-                      }}
-                      color="gray.400"
-                      fontSize={{ base: 10, md: "sm", lg: "md" }}
-                    >
-                      <Flex align={"center"} gap={4}>
-                        <PiUsersLight size={20} />
-
-                        <Text> Requests</Text>
-                      </Flex>
-                    </Tab>
+                  <TabList ml={5} py={8} w="full" border="none">
+                    {tabItems.map((item, index) => (
+                      <Tab
+                        key={index}
+                        py={{ base: 3, lg: 4 }}
+                        w="full"
+                        _selected={{
+                          borderBottom: "3px solid",
+                          borderColor: "brand.100",
+                          color: "brand.100",
+                        }}
+                        color="gray.400"
+                        fontSize={{ base: 10, md: "sm", lg: "md" }}
+                      >
+                        <Flex align="center" gap={4}>
+                          {item.icon}
+                          <Text>{item.label}</Text>
+                        </Flex>
+                      </Tab>
+                    ))}
                   </TabList>
 
                   <TabPanels>
-                    <TabPanel p={0} w={"full"}>
-                      <History />
-                    </TabPanel>
-                    <TabPanel w={"full"}>hello</TabPanel>
-                    <TabPanel w={"full"}>
-                      <Followers />
-                    </TabPanel>
-                    <TabPanel w={"full"}>
-                      <Following />
-                    </TabPanel>
-                    <TabPanel w={"full"}>
-                      <Requested />
-                    </TabPanel>
-                    <TabPanel w={"full"}>
-                      <Requests />
-                    </TabPanel>
+                    {tabItems.map((item, index) => (
+                      <TabPanel key={index} p={0} w="full">
+                        {item.component}
+                      </TabPanel>
+                    ))}
                   </TabPanels>
                 </Tabs>
               </Box>
