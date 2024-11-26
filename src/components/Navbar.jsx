@@ -28,16 +28,22 @@ import {
   TabPanels,
   TabPanel,
   Tabs,
+  List,
+  ListItem,
+  ListIcon,
 } from "@chakra-ui/react";
+import { PiUsersThreeLight } from "react-icons/pi";
+
 import { SearchIcon, BellIcon } from "@chakra-ui/icons";
 import { HamburgerIcon } from "@chakra-ui/icons";
 import logo from "../../assets/logo.svg";
-import { FiUserCheck } from "react-icons/fi";
+import { FiUserCheck, FiUsers } from "react-icons/fi";
 import { CiSettings } from "react-icons/ci";
 import { PiSignOutThin } from "react-icons/pi";
 import avatar from "../../assets/avatar1.svg";
 import { useNavigate } from "react-router-dom";
 import avatar2 from "../../assets/avatar5.svg";
+import { BiBarChartAlt2 } from "react-icons/bi";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -268,6 +274,7 @@ const Navbar = () => {
               />
             </MenuButton>
             <MenuList p={5}>
+              {/* Profile Header */}
               <Flex
                 onClick={() => navigate("/profile")}
                 cursor={"pointer"}
@@ -282,31 +289,62 @@ const Navbar = () => {
                 </Box>
               </Flex>
 
-              <Stack alignItems={"start"} mt={4}>
-                <Button
-                  fontWeight={"normal"}
-                  variant="ghost"
-                  leftIcon={<FiUserCheck size={20} />}
+              {/* Menu Items as List */}
+              <List spacing={3} mt={4}>
+                <ListItem
+                  cursor="pointer"
+                  display="flex"
+                  alignItems="center"
+                  onClick={() => navigate("/detail-page")}
                 >
-                  Edit Profile
-                </Button>
-                <Button
-                  fontWeight={"normal"}
-                  variant="ghost"
-                  leftIcon={<CiSettings size={20} />}
-                >
-                  Settings
-                </Button>
+                  <ListIcon as={BiBarChartAlt2} />
 
-                <Button
-                  fontWeight={"normal"}
-                  variant="ghost"
-                  leftIcon={<PiSignOutThin size={20} />}
+                  <Text ml={3}>My polls</Text>
+                </ListItem>
+
+                <ListItem
+                  cursor="pointer"
+                  display="flex"
+                  alignItems="center"
+                  onClick={() => navigate("/profile")}
+                >
+                  <ListIcon mb={"4px"} as={PiUsersThreeLight} />
+                  <Text ml={3}> Followers</Text>
+                </ListItem>
+
+                <ListItem
+                  cursor="pointer"
+                  display="flex"
+                  alignItems="center"
+                  onClick={() => navigate("/settings")}
+                >
+                  <CiSettings size={20} />
+                  <Text ml={3}>Settings</Text>
+                </ListItem>
+
+                <ListItem
+                  mb={5}
+                  cursor="pointer"
+                  display="flex"
+                  alignItems="center"
+                  onClick={() => navigate("/settings")}
+                >
+                  <FiUserCheck size={20} />
+                  <Text ml={3}>Edit Profile</Text>
+                </ListItem>
+                <Divider mt={20} w={"full"} />
+
+                <ListItem
+                  pt={5}
+                  cursor="pointer"
+                  display="flex"
+                  alignItems="center"
                   onClick={() => navigate("/login")}
                 >
-                  Logout
-                </Button>
-              </Stack>
+                  <PiSignOutThin size={20} />
+                  <Text ml={3}>Logout</Text>
+                </ListItem>
+              </List>
             </MenuList>
           </Menu>
         </Flex>
