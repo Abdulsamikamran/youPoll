@@ -10,15 +10,14 @@ import BottomNav from "./components/BottomNav";
 const Layout = ({ children }) => {
   return (
     <Flex position={"relative"} direction="column" minH="100vh">
-      <Box display={{ base: "none", md: "block" }}>
+      <Box display={{ base: "none", lg: "block" }}>
         <Navbar />
       </Box>
-      <Box display={{ base: "block", md: "none" }}>
+      <Box display={{ base: "block", lg: "none" }}>
         <MobileNav />
       </Box>
       <Box flex="1">{children}</Box>
 
-      {/* bottom nav */}
       <BottomNav />
 
       <Box display={{ base: "none", md: "block" }}>

@@ -21,6 +21,7 @@ import {
   Flex,
   Image,
   InputLeftElement,
+  SimpleGrid,
 } from "@chakra-ui/react";
 import { AddIcon, CloseIcon } from "@chakra-ui/icons";
 import { useState } from "react";
@@ -48,23 +49,24 @@ const CreatePoll = () => {
   };
 
   return (
-    <Box w={"full"} h={"full"} bg={"white"}>
+    <Box w={"full"} h={"full"}>
       <Layout>
         <Box w={"full"} py={10}>
-          <Heading size="lg" textAlign="center">
+          <Heading py={2} size="lg" textAlign="center">
             Create a Poll
           </Heading>
-          <Text color="gray.500" textAlign="center">
+          <Text py={2} color="gray.500" textAlign="center">
             Complete the below fields to create your poll.
           </Text>
           <Box
             my={2}
-            maxW="1000px"
+            maxW="800px"
             mx="auto"
-            p={8}
+            p={{ base: 3, md: 8 }}
             bg="white"
             borderRadius="md"
             boxShadow="md"
+            pb={10}
           >
             <VStack spacing={6} align="stretch">
               {/* Title and Description */}
@@ -114,7 +116,6 @@ const CreatePoll = () => {
                 </Button>
               </VStack>
 
-              {/* Poll Type and Answer Options */}
               <VStack align="stretch" spacing={4}>
                 <HStack spacing={3}>
                   <FormControl>
@@ -238,10 +239,7 @@ const CreatePoll = () => {
                 Settings
               </Text>
 
-              <Flex
-                flexDirection={{ base: "column", md: "row" }}
-                gap={{ base: 3, md: 10 }}
-              >
+              <SimpleGrid columns={{ base: 1, md: 2 }} spacing={5}>
                 <Flex direction="column" gap={4} w={"full"}>
                   <Flex justifyContent={"space-between"} alignItems="center">
                     <Text>Close poll on a schedule date</Text>
@@ -275,7 +273,15 @@ const CreatePoll = () => {
                     </Select>
                   </FormControl>
                 </Flex>
-              </Flex>
+                <Flex
+                  justifyContent={"space-between"}
+                  mt={4}
+                  alignItems="center"
+                >
+                  <Text>Anonymous poll</Text>
+                  <Switch colorScheme="red" />
+                </Flex>
+              </SimpleGrid>
 
               <Button
                 variant="solid"

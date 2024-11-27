@@ -6,19 +6,19 @@ const Card = ({ buttonText, variant }) => {
   return (
     <Box
       bg="white"
-      p={{ base: 3, md: 7 }}
+      p={{ base: 3, xl: 7 }}
       borderRadius="lg"
       boxShadow="md"
       display="flex"
       alignItems="center"
       maxW="full"
-      py={{ base: 8, md: 0 }}
+      py={{ base: 8, xl: 0 }}
     >
       <Avatar
-        size={{ base: "lg", md: "xl" }}
+        size={{ base: "lg", xl: "xl" }}
         name="Sam Willson"
         src={avatar}
-        mr={{ base: 1, md: 4 }}
+        mr={{ base: 1, xl: 4 }}
       />
       <Flex flex="1" direction="column">
         <Text fontWeight="bold" fontSize="lg">
@@ -34,7 +34,7 @@ const Card = ({ buttonText, variant }) => {
           colorScheme="red"
           borderRadius="full"
           fontWeight="semibold"
-          size={{ base: "md", md: "lg" }}
+          size={{ base: "md", xl: "lg" }}
         >
           {buttonText}
         </Button>

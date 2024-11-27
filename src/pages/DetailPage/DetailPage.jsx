@@ -10,7 +10,7 @@ import {
   Stack,
   Text,
 } from "@chakra-ui/react";
-import { CiFlag1, CiHeart, CiShare2 } from "react-icons/ci";
+import { CiHeart, CiShare2 } from "react-icons/ci";
 import { FaRegCommentDots } from "react-icons/fa";
 import Poll2 from "./components/Poll2";
 import CommentSection from "./components/Comment";
@@ -23,19 +23,29 @@ import PostCard from "../../components/PostCard";
 
 const DetailPage = () => {
   return (
-    <Box w={"full"} h={"full"} bg={"white"}>
+    <Box w={"full"} h={"full"}>
       <Layout>
-        <Box py={{ base: 4, md: 10 }} maxW={"1600px"} mx={"auto"}>
+        <Box
+          bg={"white"}
+          // my={4}
+          py={{ base: 4, md: 10 }}
+          px={{ base: 2, md: 10 }}
+          maxW={"1400px"}
+          mx={"auto"}
+        >
           <Box display={{ base: "none", md: "block" }}>
             <Flex w={"full"} justifyContent={"center"}>
               <Image w={"full"} src={mainBanner} />
             </Flex>
             <Flex justifyContent={"space-between"} alignItems={"center"} py={8}>
               <Stack flex={0.6}>
-                <Text fontWeight={"semibold"} fontSize={"26px"}>
+                <Text
+                  fontWeight={"semibold"}
+                  fontSize={{ md: "16px", lg: "26px" }}
+                >
                   News: The Next Era of Air Mobility
                 </Text>
-                <Text fontSize={"20px"} color={"gray.500"}>
+                <Text fontSize={{ md: "12px", lg: "20px" }} color={"gray.500"}>
                   Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et
                   facilis, soluta vitae porro, praesentium deserunt explicabo
                   optio laborum?
@@ -49,46 +59,32 @@ const DetailPage = () => {
                   rounded={"md"}
                   bg={"brand.100"}
                   color={"white"}
-                  py={4}
+                  py={{ md: 3, lg: 4 }}
                   px={2}
                 >
                   <Image w={5} src={clock} />
                   <Text fontWeight={"semibold"}>Ending Soon: </Text>
                   <Text>48:00:00</Text>
                 </Flex>
-                <Flex flex={0.3} gap={4}>
-                  <HStack>
-                    <Image src={repost} />
-                    <Text fontSize="sm" color="gray.500">
-                      Repost
-                    </Text>
+                <Flex fontSize={{ md: 10, lg: "sm" }} flex={0.3} gap={3}>
+                  <HStack spacing={1}>
+                    <Image boxSize={{ md: 2, lg: 4 }} src={repost} />
+                    <Text color="gray.500">Repost</Text>
                   </HStack>
-                  <HStack>
+                  <HStack spacing={1}>
                     <Icon as={CiHeart} color="gray.500" />
-                    <Text fontSize="sm" color="gray.500">
-                      470
-                    </Text>
-                    <Text fontSize="sm" color="gray.500">
-                      Likes
-                    </Text>
+                    <Text color="gray.500">470</Text>
+                    <Text color="gray.500">Likes</Text>
                   </HStack>
-                  <HStack>
+                  <HStack spacing={1}>
                     <Icon as={FaRegCommentDots} color="gray.500" />
-                    <Text fontSize="sm" color="gray.500">
-                      76
-                    </Text>
-                    <Text fontSize="sm" color="gray.500">
-                      Comments
-                    </Text>
+                    <Text color="gray.500">76</Text>
+                    <Text color="gray.500">Comments</Text>
                   </HStack>
-                  <HStack>
+                  <HStack spacing={1}>
                     <Icon as={CiShare2} color="gray.500" />
-                    <Text fontSize="sm" color="gray.500">
-                      18
-                    </Text>
-                    <Text fontSize="sm" color="gray.500">
-                      Shares
-                    </Text>
+                    <Text color="gray.500">18</Text>
+                    <Text color="gray.500">Shares</Text>
                   </HStack>
                 </Flex>
               </Flex>

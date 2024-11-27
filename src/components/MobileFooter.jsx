@@ -14,7 +14,9 @@ const MobileFooter = () => {
       alignItems="center"
       flexDirection={"column"}
     >
-      <Heading size="md">SUBSCRIBE TO OUR NEWSLETTER TODAY</Heading>
+      <Heading fontWeight={"semibold"} textAlign={"center"} size="sm">
+        SUBSCRIBE TO OUR NEWSLETTER TODAY
+      </Heading>
       <Button colorScheme="white" py={8} variant={"outline"} size="lg" my={10}>
         Subscribe
       </Button>

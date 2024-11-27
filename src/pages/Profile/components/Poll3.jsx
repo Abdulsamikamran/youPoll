@@ -39,7 +39,12 @@ const Poll3 = () => {
   return (
     <Box mx="auto" bg="white">
       <HStack justifyContent={"space-between"} align="flex-start">
-        <RadioGroup mt={5} onChange={setSelectedOption} value={selectedOption}>
+        <RadioGroup
+          flex={4}
+          mt={5}
+          onChange={setSelectedOption}
+          value={selectedOption}
+        >
           <Stack spacing={9} direction="column">
             {Object.keys(votes).map((option) => (
               <Radio
@@ -64,7 +69,7 @@ const Poll3 = () => {
           </Stack>
         </RadioGroup>
 
-        <VStack alignItems={"start"} width="700px">
+        <VStack flex={6} alignItems={"start"} maxW="700px">
           {Object.entries(votes).map(([option, count]) => {
             const percentage = ((count / totalVotes) * 100).toFixed(2);
             return (

@@ -30,10 +30,14 @@ const Home = () => {
     <Layout>
       <Box maxW="1400px" py={{ base: 3, md: 10 }} mx="auto">
         <Box
+          display={"flex"}
+          flexDir={"column"}
+          justifyContent={"center"}
+          alignItems={"center"}
           mb={{ base: 14, md: 8 }}
-          p={{ base: 14, md: 52 }}
+          px={{ base: 2, sm: 6, md: 12, xl: 20 }}
           w={"full"}
-          h={{ base: "400px", md: "full" }}
+          h={{ base: "400px", md: "500px", lg: "650px" }}
           bgImage={{ base: mainBannerMobile, md: mainBanner }}
           bgColor={"brand.100"}
           bgSize="cover"
@@ -43,14 +47,14 @@ const Home = () => {
         >
           <Text
             px={16}
-            lineHeight={{ base: "30px", md: "63.48px" }}
-            fontWeight={{ base: 600, md: 700 }}
-            fontSize={{ base: 24, md: "48.8px" }}
+            lineHeight={{ base: "30px", md: "50px", lg: "63.48px" }}
+            fontWeight={{ base: 600, lg: 700 }}
+            fontSize={{ base: 24, md: 36, lg: "48.8px" }}
             mb={4}
           >
             The Snap Pixel: How It Works and How to Install
           </Text>
-          <Text fontSize={{ base: 14, md: "20px" }}>
+          <Text fontSize={{ base: 14, md: "16px", lg: "20px" }}>
             Let’s make your work more organized and easily using the Taskio
             Dashboard with many of the latest features in managing work every
             day.
@@ -73,7 +77,7 @@ const Home = () => {
         </Box>
 
         <Flex
-          px={{ base: "10px", md: 0 }}
+          px={{ base: "10px" }}
           mt={-20}
           gap={4}
           overflowY="hidden"
@@ -163,7 +167,7 @@ const Home = () => {
             />
           </Box>
 
-          <Box flex="1" display={{ base: "none", lg: "block" }}>
+          <Box flex="1" display={{ base: "none", xl: "block" }}>
             <Box
               mb={8}
               p={4}

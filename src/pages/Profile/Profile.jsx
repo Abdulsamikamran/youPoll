@@ -73,13 +73,54 @@ const Profile = () => {
   const avatars = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6];
   const navigate = useNavigate();
   return (
-    <Box bg={"white"} w={"full"} h={"full"}>
+    <Box bg={"white"} overflow={"hidden"} w={"full"} h={"full"}>
       <Box display={{ base: "none", md: "block" }}>
         <Layout>
-          <Image w={"full"} src={hero} />
+          <Image position={"relative"} h={"auto"} src={hero} w={"full"} />
+          <Flex
+            display={{ base: "flex", md: "none" }}
+            overflow={"hidden"}
+            color={"white"}
+            align={"end"}
+            position={"absolute"}
+            top={{ base: "100px", sm: "120px" }}
+            px={{ base: 8, sm: 16 }}
+            gap={2}
+            w={"full"}
+            justify={"space-between"}
+          >
+            <Stack spacing={0} justify={"center"} align={"center"}>
+              <Text fontSize={{ base: "16px" }} fontWeight={"bold"}>
+                2.1k
+              </Text>
+              <Text fontSize={{ base: "12px" }}>Followers</Text>
+            </Stack>
+            <Stack spacing={0} justify={"center"} align={"center"}>
+              <Image src={avatar} w={{ base: 20 }} />
+              <Text fontWeight={"bold"} fontSize={{ base: 14 }}>
+                Abram Marvyn
+              </Text>
+              <Text fontSize={{ base: 10 }}>@abram_marvyn</Text>
+              <Text fontSize={{ base: 8 }} color={"gray.300"}>
+                Joined January 2023
+              </Text>
+            </Stack>
+            <Stack spacing={0} justify={"center"} align={"center"}>
+              <Text fontSize={{ base: "16px" }} fontWeight={"bold"}>
+                400
+              </Text>
+              <Text fontSize={{ base: "12px" }}>Following</Text>
+            </Stack>
+          </Flex>
           <Container maxW={"1600px"} mx={"auto"}>
             <Flex gap={4}>
-              <Flex w={"390px"} gap={6} mt={-20} direction={"column"}>
+              <Flex
+                flex={0.2}
+                w={{ md: "200px", lg: "300px", xl: "400px" }}
+                gap={6}
+                mt={{ md: -10, xl: -20 }}
+                direction={"column"}
+              >
                 <VStack
                   gap={6}
                   justifyContent={"start"}
@@ -95,15 +136,22 @@ const Profile = () => {
                     alignItems={"center"}
                     onClick={() => navigate("/settings")}
                   >
-                    <Image src={avatar} />
+                    <Image
+                      w={{ md: "120px", xl: "full" }}
+                      zIndex={5}
+                      src={avatar}
+                    />
                     <Text
                       color={"gray.600"}
                       fontWeight={"bold"}
-                      fontSize={"24px"}
+                      fontSize={{ md: "20px", xl: "24px" }}
                     >
                       Abram Marvyn
                     </Text>
-                    <Text color={"gray.400"} fontSize={"17px"}>
+                    <Text
+                      color={"gray.400"}
+                      fontSize={{ md: "14px", xl: "17px" }}
+                    >
                       @abram_marvyn
                     </Text>
                   </VStack>
@@ -114,37 +162,57 @@ const Profile = () => {
                   >
                     About
                   </Text>
-                  <Text fontSize={"17px"} color={"gray.400"}>
+                  <Text
+                    fontSize={{ md: "14px", xl: "17px" }}
+                    color={"gray.400"}
+                  >
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Velit assumenda, tempora voluptate
                   </Text>
-                  <Text color={"gray.300"}>Joined January 2023</Text>
+                  <Text
+                    fontSize={{ md: "14px", xl: "17px" }}
+                    color={"gray.300"}
+                  >
+                    Joined January 2023
+                  </Text>
                 </VStack>
                 <Flex
                   pb={6}
+                  gap={4}
                   borderBottom={"2px dashed "}
                   borderColor={"gray.300"}
                   justifyContent={"space-between"}
                 >
                   <Stack justifyContent={"center"} alignItems={"center"}>
                     <Text
-                      fontSize={"23px"}
+                      // fontSize={"23px"}
+                      fontSize={{ md: "18px", xl: "23px" }}
                       fontWeight={"bold"}
                       color={"gray.500"}
                     >
                       2.1k
                     </Text>
-                    <Text color={"gray.400"}>Followers</Text>
+                    <Text
+                      fontSize={{ md: "12px", xl: "17px" }}
+                      color={"gray.400"}
+                    >
+                      Followers
+                    </Text>
                   </Stack>
                   <Stack justifyContent={"center"} alignItems={"center"}>
                     <Text
-                      fontSize={"23px"}
+                      fontSize={{ md: "18px", xl: "23px" }}
                       fontWeight={"bold"}
                       color={"gray.500"}
                     >
                       400
                     </Text>
-                    <Text color={"gray.400"}>Following</Text>
+                    <Text
+                      fontSize={{ md: "12px", xl: "17px" }}
+                      color={"gray.400"}
+                    >
+                      Following
+                    </Text>
                   </Stack>
                   <Button
                     fontWeight={"normal"}
@@ -170,7 +238,7 @@ const Profile = () => {
                       mb={1}
                       key={i}
                       position="absolute"
-                      left={`${0 + 39 * i}px`}
+                      left={{ md: `${0 + 28 * i}px`, xl: `${0 + 39 * i}px` }}
                       size="md"
                       src={src}
                       bottom={14}
@@ -181,13 +249,26 @@ const Profile = () => {
                   </Text>
                 </Box>
               </Flex>
-              <Box w="full">
+              <Box pr={3} w={{ md: "530px", lg: "750px", xl: "full" }}>
                 <Tabs>
-                  <TabList ml={5} py={8} w="full" border="none">
+                  <TabList
+                    ml={5}
+                    py={8}
+                    w="full"
+                    border="none"
+                    css={{
+                      "&::-webkit-scrollbar": {
+                        display: "none",
+                      },
+                      scrollbarWidth: "none",
+                    }}
+                    overflowX="scroll"
+                  >
                     {tabItems.map((item, index) => (
                       <Tab
                         key={index}
-                        py={{ base: 3, lg: 4 }}
+                        whiteSpace={"nowrap"}
+                        py={{ base: 3, xl: 4 }}
                         w="full"
                         _selected={{
                           borderBottom: "3px solid",
@@ -195,7 +276,7 @@ const Profile = () => {
                           color: "brand.100",
                         }}
                         color="gray.400"
-                        fontSize={{ base: 10, md: "sm", lg: "md" }}
+                        fontSize={{ base: 10, md: "sm", xl: "md" }}
                       >
                         <Flex align="center" gap={4}>
                           {item.icon}

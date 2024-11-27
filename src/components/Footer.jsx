@@ -14,16 +14,18 @@ import {
 const Footer = () => {
   return (
     <Flex
+      w={"full"}
       as="footer"
       bg="brand.100"
       color="white"
-      py={10}
+      py={{ md: 5, lg: 10 }}
+      px={{ md: 4, lg: 20 }}
       justifyContent="center"
       alignItems="center"
     >
-      <Flex justifyContent="space-between" maxW="1600px" w="full">
-        <HStack alignItems={"start"} spacing={20}>
-          <VStack spacing={4} align="flex-start" p={4}>
+      <Flex justifyContent="space-between" w="full">
+        <HStack alignItems={"start"} spacing={{ md: 2, lg: 10, xl: 20 }}>
+          <VStack whiteSpace={"nowrap"} spacing={4} align="flex-start" p={4}>
             <Heading mb={10} size="md">
               SITEMAP
             </Heading>
@@ -35,7 +37,7 @@ const Footer = () => {
               © 2021 Newspoll
             </Text>
           </VStack>
-          <VStack spacing={4} align="flex-start" p={4}>
+          <VStack whiteSpace={"nowrap"} spacing={4} align="flex-start" p={4}>
             <Heading mb={10} size="md">
               HELP
             </Heading>
@@ -46,24 +48,26 @@ const Footer = () => {
           </VStack>
         </HStack>
         <VStack spacing={6} align="flex-start" p={4}>
-          <Heading size="md">SUBSCRIBE TO OUR NEWSLETTER TODAY</Heading>
+          <Heading size="sm">SUBSCRIBE TO OUR NEWSLETTER TODAY</Heading>
           <HStack>
             <Input
-              py={8}
+              flex={0.7}
+              py={{ md: 6, lg: 6, xl: 8 }}
               id="email"
               type="email"
               placeholder="Enter your email"
               variant="outline"
               rounded={"md"}
-              minW={"400px"}
+              minW={{ lg: "250px", xl: "400px" }}
               _focus={{ borderColor: "#FF5A5E", boxShadow: "none" }}
               bgColor={useColorModeValue("gray.50", "gray.600")}
             />
             <Button
+              flex={0.3}
               colorScheme="white"
-              py={8}
+              py={{ md: 6, lg: 6, xl: 8 }}
               variant={"outline"}
-              size="lg"
+              // size={{ md: "md", lg: "lg" }}
               w="full"
             >
               Subscribe

@@ -40,7 +40,7 @@ const CreateAccount = () => {
   };
 
   return (
-    <Box bg={"white"} w={"full"} h={"100%"}>
+    <Box bg={"white"} w={"full"} pb={10} h={"100%"}>
       <Image
         src={logo}
         position={"absolute"}
@@ -50,6 +50,7 @@ const CreateAccount = () => {
       <Flex
         py={6}
         w={"full"}
+        px={4}
         gap={3}
         direction={"column"}
         alignItems={"center"}
@@ -65,7 +66,7 @@ const CreateAccount = () => {
         >
           <Heading
             as="h1"
-            fontSize={{ base: "28px", md: "36px" }}
+            fontSize={{ base: "26px", md: "36px" }}
             fontWeight="semibold"
             color={useColorModeValue("black", "gray.200")}
           >
@@ -74,19 +75,14 @@ const CreateAccount = () => {
           <Text
             textAlign={"center"}
             maxW={"400px"}
-            fontSize={{ base: "14px", md: "16px" }}
+            fontSize={{ base: "12px", md: "16px" }}
             color="brand.900"
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
             condimentum, lacus
           </Text>
 
-          <SimpleGrid
-            w={"full"}
-            columns={{ base: 1, md: 2 }}
-            px={4}
-            spacing={6}
-          >
+          <SimpleGrid w={"full"} columns={{ base: 1, md: 2 }} spacing={6}>
             <FormControl>
               <FormLabel fontSize="16px" htmlFor="name">
                 Full Name

@@ -79,9 +79,10 @@ const PostCard = ({
   return (
     <Box
       mb={8}
-      p={{ base: 3, md: 6 }}
+      p={{ base: 2, sm: 3, md: 6 }}
       bg={useColorModeValue("white", "gray.800")}
       borderRadius="md"
+      w={"full"}
       shadow="md"
     >
       <Flex justify={"space-between"}>
@@ -121,13 +122,13 @@ const PostCard = ({
             <ModalOverlay />
             <ModalContent
               mx={{ base: 5, md: 0 }}
-              px={{ base: 2, md: 10 }}
-              py={5}
+              px={{ base: 2, md: 5 }}
+              py={3}
               rounded={"28px"}
             >
               <Flex direction={"column"} justify={"center"} align={"center"}>
                 <ModalHeader>
-                  <Image src={modal} w={40} />
+                  <Image src={modal} w={{ base: 28, md: 40 }} />
                 </ModalHeader>
                 <ModalCloseButton />
                 <ModalBody>
@@ -195,7 +196,7 @@ const PostCard = ({
       <Flex justifyContent="space-between" alignItems="center" w="full" mb={4}>
         <Heading
           onClick={() => navigate("detail-page")}
-          size="md"
+          size={{ base: "sm", md: "md" }}
           fontWeight={"semibold"}
           cursor={"pointer"}
         >
@@ -212,7 +213,7 @@ const PostCard = ({
           {category}
         </Box>
       </Flex>
-      <Text color="#5D5D66" fontSize="18px" mb={4}>
+      <Text color="#5D5D66" fontSize={{ base: "13px", md: "18px" }} mb={4}>
         {description}
       </Text>
       <Image
@@ -223,12 +224,12 @@ const PostCard = ({
         alt="Air Mobility"
       />
       <Flex w="full" alignItems="center" mb={4} justifyContent="space-between">
-        <Heading size="md">{question}</Heading>
+        <Heading size={{ base: "sm", md: "md" }}>{question}</Heading>
         <Button
           bgColor="brand.100"
           color="white"
           colorScheme="red"
-          fontSize="sm"
+          fontSize={{ md: "10px", lg: "sm" }}
           display={{ base: "none", md: "block" }}
           px={2}
           py={2}
@@ -240,16 +241,18 @@ const PostCard = ({
         </Button>
       </Flex>
       <Collapse in={isCollapse} animateOpacity>
-        <Text color="gray.400" fontSize="14px">
-          Make a choice:
-        </Text>
-        <Poll />
+        <Box px={2}>
+          <Text color="gray.400" fontSize="14px">
+            Make a choice:
+          </Text>
+          <Poll />
+        </Box>
       </Collapse>
       <Flex
         w="full"
         py={6}
         my={4}
-        px={4}
+        px={3}
         justifyContent="space-between"
         borderTop="1px solid"
         borderBottom="1px solid"
@@ -262,28 +265,28 @@ const PostCard = ({
           gap={2}
         >
           <BiSolidLike color={liked ? "red" : "gray"} />
-          <Text>Like</Text>
+          <Text fontSize={{ base: "10px", md: "16px" }}>Like</Text>
         </Flex>
 
         <Flex alignItems="center" gap={2}>
           <BiSolidComment color="gray" />
-          <Text>Comment</Text>
+          <Text fontSize={{ base: "10px", md: "16px" }}>Comment</Text>
         </Flex>
 
         <Flex
-          display={{ base: "flex", md: "none" }}
+          display={{ base: "flex", lg: "none" }}
           alignItems="center"
           gap={2}
         >
           <Image src={repost} />
-          <Text>Repost</Text>
+          <Text fontSize={{ base: "10px", md: "16px" }}>Repost</Text>
         </Flex>
 
         <Menu>
           <MenuButton bg={"white"} cursor="pointer">
             <Flex alignItems="center" gap={2}>
               <PiShareFatFill color="gray" />
-              <Text>Share</Text>
+              <Text fontSize={{ base: "10px", md: "16px" }}>Share</Text>
             </Flex>
           </MenuButton>
           <MenuList>
@@ -302,17 +305,16 @@ const PostCard = ({
         rounded="lg"
         justifyContent={{ base: "start", md: "space-between" }}
         alignItems="center"
-        gap={{ base: 2, md: 0 }}
+        gap={{ base: 1, md: 0 }}
       >
         <Button
           onClick={onVoteOpen}
           bgColor="brand.100"
-          // _hover={{ bgColor: "red.500" }}
           colorScheme="red"
           color="white"
           size="lg"
-          px={{ base: 7, md: 14 }}
-          py={7}
+          px={{ base: 6, md: 10 }}
+          py={{ base: 2, md: 8 }}
           fontSize="md"
           fontWeight="semibold"
         >
@@ -366,40 +368,46 @@ const PostCard = ({
           </ModalContent>
         </Modal>
         <Flex alignItems="center">
+          {/* <Box mt={-6}> */}
           {avatars.map((src, i) => (
             <Avatar
               key={i}
               position="absolute"
-              left={{ base: `${220 + 18 * i}px`, md: `${170 + 25 * i}px` }}
-              size={{ base: "16px", md: "md" }}
-              w={{ base: "28px", md: "40px" }}
+              left={{
+                base: `${190 + 7 * i}px`,
+                sm: `${190 + 14 * i}px`,
+                lg: `${200 + 32 * i}px`,
+              }}
+              size={{ base: "5px", md: "md" }}
+              w={{ base: "20px", md: "40px" }}
               src={src}
             />
           ))}
+          {/* </Box> */}
 
           <Flex gap={8} w={"full"} alignItems="center">
             <Text
-              fontSize={{ base: "10px", md: "16px" }}
-              position={{ base: "absolute", md: "relative" }}
+              fontSize={{ base: "10px", md: "17px", lg: "17px" }}
+              position={{ base: "absolute", lg: "relative" }}
               right={2}
             >
               +170 Votes
             </Text>
-            <HStack display={{ base: "none", md: "flex" }}>
+            <HStack display={{ base: "none", lg: "flex" }}>
               <Image src={repost} />
-              <Text fontSize={{ base: "10px", md: "16px" }} color="gray.500">
+              <Text fontSize={{ base: "10px", lg: "16px" }} color="gray.500">
                 Repost
               </Text>
             </HStack>
-            <HStack display={{ base: "none", md: "flex" }}>
+            <HStack display={{ base: "none", lg: "flex" }}>
               <Icon as={CiHeart} color="gray.500" />
-              <Text fontSize={{ base: "10px", md: "16px" }} color="gray.500">
+              <Text fontSize={{ base: "10px", lg: "16px" }} color="gray.500">
                 32
               </Text>
             </HStack>
-            <HStack display={{ base: "none", md: "flex" }}>
+            <HStack display={{ base: "none", lg: "flex" }}>
               <Icon as={CiShare2} color="gray.500" />
-              <Text fontSize={{ base: "10px", md: "16px" }} color="gray.500">
+              <Text fontSize={{ base: "10px", lg: "16px" }} color="gray.500">
                 12
               </Text>
             </HStack>

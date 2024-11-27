@@ -49,7 +49,11 @@ const Navbar = () => {
   const navigate = useNavigate();
   return (
     <Box bg="white" boxShadow="sm" py={5}>
-      <Flex justify="space-between" px={28} align="center">
+      <Flex
+        justify="space-between"
+        px={{ md: 4, lg: 8, xl: 28 }}
+        align="center"
+      >
         <Menu>
           <MenuButton bg={"none"} as={Button}>
             <HamburgerIcon />
@@ -85,7 +89,11 @@ const Navbar = () => {
         </Menu>
         <Image cursor={"pointer"} onClick={() => navigate("/")} src={logo} />
 
-        <HStack spacing={8} color="gray.500" fontSize="sm">
+        <HStack
+          spacing={{ md: 2, lg: 4, xl: 8 }}
+          color="gray.500"
+          fontSize={{ md: "10px", lg: 14, xl: 16 }}
+        >
           <Text as="a" href="/">
             Home
           </Text>
@@ -100,13 +108,13 @@ const Navbar = () => {
       <Divider pt={4} w={"full"}></Divider>
       <Flex
         pt={4}
-        px={32}
+        px={{ md: 4, lg: 8, xl: 28 }}
         h={"full"}
         justify={"space-between"}
         alignItems={"center"}
         gap={4}
       >
-        <Box w="full" maxW="400px">
+        <Box w="full" maxW={{ md: "250px", lg: "300px", xl: "400px" }}>
           <Popover placement="bottom-start" isLazy>
             <PopoverTrigger>
               <InputGroup>
@@ -115,7 +123,7 @@ const Navbar = () => {
                   children={<SearchIcon mt={2} color="gray.300" />}
                 />
                 <Input
-                  py={6}
+                  py={{ md: 4, lg: 6 }}
                   type="text"
                   placeholder="Search"
                   variant="outline"
@@ -184,9 +192,9 @@ const Navbar = () => {
                               px={4}
                               py={2}
                               border="1px solid"
-                              borderColor="red.400"
+                              borderColor="brand.100"
                               borderRadius="full"
-                              color="red.400"
+                              color="brand.100"
                               fontWeight="semibold"
                               _hover={{ bg: "red.100" }}
                             >
@@ -224,13 +232,13 @@ const Navbar = () => {
                               px={4}
                               py={2}
                               border="1px solid"
-                              borderColor="red.400"
+                              borderColor="brand.100"
                               borderRadius="full"
-                              color="red.400"
+                              color="brand.100"
                               fontWeight="semibold"
                               _hover={{ bg: "red.100" }}
                             >
-                              Follow
+                              View polls
                             </Box>
                           </Box>
                         </Box>
@@ -249,7 +257,7 @@ const Navbar = () => {
             bgColor={"brand.100 "}
             _hover={{ bgColor: "red.500" }}
             color={"white"}
-            size="lg"
+            size={{ md: "md", lg: "lg" }}
             onClick={() => navigate("/create-poll")}
             fontSize="md"
             fontWeight="semibold"

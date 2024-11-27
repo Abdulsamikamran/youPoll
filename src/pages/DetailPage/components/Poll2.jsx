@@ -77,32 +77,34 @@ const Poll2 = () => {
               </Radio>
             ))}
           </Stack>
-          <Button
-            mr={2}
-            bgColor="brand.100"
-            _hover={{ bgColor: "red.500" }}
-            color="white"
-            size="lg"
-            px={8}
-            py={4}
-            fontSize="md"
-            fontWeight="semibold"
-          >
-            Vote
-            <Image ml={3} w={6} src={arrow} />
-          </Button>
-          <Button
-            variant={"outline"}
-            color="gray.500"
-            size="lg"
-            px={8}
-            py={4}
-            fontSize="md"
-            fontWeight="normal"
-          >
-            <Image mr={3} w={6} src={result} />
-            Show Results
-          </Button>
+          <Flex>
+            <Button
+              mr={2}
+              bgColor="brand.100"
+              _hover={{ bgColor: "red.500" }}
+              color="white"
+              size={{ md: "sm", lg: "lg" }}
+              px={8}
+              py={4}
+              fontSize="md"
+              fontWeight="semibold"
+            >
+              Vote
+              <Image ml={3} w={6} src={arrow} />
+            </Button>
+            <Button
+              variant={"outline"}
+              color="gray.500"
+              size={{ md: "sm", lg: "lg" }}
+              px={8}
+              py={4}
+              fontSize="md"
+              fontWeight="normal"
+            >
+              <Image mr={3} w={6} src={result} />
+              Show Results
+            </Button>
+          </Flex>
         </RadioGroup>
 
         <VStack alignItems={"start"} width="500px">

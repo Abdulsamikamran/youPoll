@@ -10,7 +10,7 @@ const History = () => {
   return (
     <>
       <Flex
-        display={{ base: "none", md: "flex" }}
+        display={{ base: "none", lg: "flex" }}
         direction={"column"}
         gap={10}
       >
@@ -18,7 +18,12 @@ const History = () => {
         <PollCard />
         <Pagination />
       </Flex>
-      <Flex display={{ base: "flex", md: "none" }} direction={"column"} gap={4}>
+      <Flex
+        display={{ base: "flex", lg: "none" }}
+        direction={"column"}
+        p={0}
+        gap={4}
+      >
         <PostCard
           username="Abram Maryan"
           avatarSrc={avatar}

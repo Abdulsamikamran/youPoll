@@ -30,7 +30,12 @@ const PollCard = () => {
   const avatars = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6];
   return (
     <Box w={"full"}>
-      <Flex rounded={"lg"} p={10} align={"start"} boxShadow={"md"}>
+      <Flex
+        rounded={"lg"}
+        p={{ lg: 5, xl: 10 }}
+        align={"start"}
+        boxShadow={"md"}
+      >
         <Image src={poll} />
         <Box px={6} w={"full"}>
           <Flex w={"full"} justifyContent={"space-between"}>
@@ -69,7 +74,7 @@ const PollCard = () => {
               <Text fontWeight={"semibold"} fontSize={"18.14px"}>
                 News: The Next Era of Air Mobility
               </Text>
-              <Text fontSize={"13.6px"} color={"gray.400"} w={"600px"}>
+              <Text fontSize={"13.6px"} color={"gray.400"} maxWidth={"600px"}>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et
                 facilis, soluta vitae porro, praesentium deserunt explicabo
                 optio laborum?
@@ -88,55 +93,57 @@ const PollCard = () => {
             w="100%"
             h="100%"
             p={2}
-            py={4}
+            py={8}
             position="relative"
             bg="gray.100"
             rounded="lg"
             justifyContent="space-between"
             alignItems="center"
           >
-            <Flex py={6} alignItems="center">
+            <Box>
               {avatars.map((src, i) => (
                 <Avatar
                   key={i}
+                  top={"20%"}
                   position="absolute"
-                  left={`${20 + 25 * i}px`} // Adjusted for the correct left position
+                  left={`${20 + 25 * i}px`}
                   size="md"
                   src={src}
                 />
               ))}
+            </Box>
 
-              <Flex
-                color={"#6B7280"}
-                w={"full"}
-                ml={52}
-                gap={"300px"}
-                alignItems="center"
-                justifyContent={"space-between"}
-              >
-                <Flex gap={4}>
-                  <Text>+170 Views</Text>
-                  <HStack>
-                    <Image src={comment} />
-                    <Text>1200</Text>
-                  </HStack>
-                  <Text>142,300 Votes</Text>
-                </Flex>
+            <Flex
+              color={"#6B7280"}
+              w={"full"}
+              whiteSpace={"nowrap"}
+              ml={52}
+              fontSize={{ lg: 10, xl: 16 }}
+              alignItems="center"
+              justifyContent={"space-between"}
+            >
+              <Flex gap={4}>
+                <Text>+170 Views</Text>
+                <HStack>
+                  <Image src={comment} />
+                  <Text>1200</Text>
+                </HStack>
+                <Text>142,300 Votes</Text>
+              </Flex>
 
-                <Flex gap={4}>
-                  <HStack>
-                    <Icon as={CiBookmark} />
-                    <Text>32</Text>
-                  </HStack>
-                  <HStack>
-                    <Icon as={CiShare2} />
-                    <Text>12</Text>
-                  </HStack>
-                  <HStack>
-                    <Image src={repost} />
-                    <Text>Repost</Text>
-                  </HStack>
-                </Flex>
+              <Flex gap={4}>
+                <HStack>
+                  <Icon as={CiBookmark} />
+                  <Text>32</Text>
+                </HStack>
+                <HStack>
+                  <Icon as={CiShare2} />
+                  <Text>12</Text>
+                </HStack>
+                <HStack>
+                  <Image src={repost} />
+                  <Text>Repost</Text>
+                </HStack>
               </Flex>
             </Flex>
           </Flex>

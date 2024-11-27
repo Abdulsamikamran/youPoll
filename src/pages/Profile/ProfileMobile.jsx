@@ -80,35 +80,36 @@ const ProfileMobile = () => {
           color={"white"}
           align={"end"}
           position={"absolute"}
-          top={"100px"}
-          justifyContent={"center"}
-          px={5}
-          gap={8}
+          top={{ base: "100px", sm: "120px" }}
+          px={{ base: 8, sm: 16 }}
+          gap={2}
+          w={"full"}
+          justify={"space-between"}
         >
           <Stack spacing={0} justify={"center"} align={"center"}>
-            <Text fontSize={"23px"} fontWeight={"bold"}>
+            <Text fontSize={{ base: "16px" }} fontWeight={"bold"}>
               2.1k
             </Text>
-            <Text>Followers</Text>
+            <Text fontSize={{ base: "12px" }}>Followers</Text>
           </Stack>
           <Stack spacing={0} justify={"center"} align={"center"}>
-            <Image src={avatar} w={24} />
-            <Text fontWeight={"bold"} fontSize={"20px"}>
+            <Image src={avatar} w={{ base: 20 }} />
+            <Text fontWeight={"bold"} fontSize={{ base: 14 }}>
               Abram Marvyn
             </Text>
-            <Text fontSize={"15px"}>@abram_marvyn</Text>
-            <Text fontSize={"12px"} color={"gray.300"}>
+            <Text fontSize={{ base: 10 }}>@abram_marvyn</Text>
+            <Text fontSize={{ base: 8 }} color={"gray.300"}>
               Joined January 2023
             </Text>
           </Stack>
           <Stack spacing={0} justify={"center"} align={"center"}>
-            <Text fontSize={"23px"} fontWeight={"bold"}>
+            <Text fontSize={{ base: "16px" }} fontWeight={"bold"}>
               400
             </Text>
-            <Text>Following</Text>
+            <Text fontSize={{ base: "12px" }}>Following</Text>
           </Stack>
         </Flex>
-        <Flex gap={20} p={5}>
+        <Flex gap={10} p={5}>
           <Box>
             <Text fontSize={"15px"} color={"gray.500"} fontWeight={"bold"}>
               About

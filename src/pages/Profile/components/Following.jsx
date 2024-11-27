@@ -59,7 +59,7 @@ const Following = () => {
         px={3}
         justifyContent={"flex-end"}
       >
-        <InputGroup maxW={{ base: "full", md: "400px" }}>
+        <InputGroup maxW={{ base: "full", md: "250px" }}>
           <InputLeftElement
             pointerEvents="none"
             children={<SearchIcon mt={2} color="gray.300" />}
@@ -79,7 +79,7 @@ const Following = () => {
       <SimpleGrid
         px={2}
         w={"full"}
-        columns={{ base: 1, md: 2 }}
+        columns={{ base: 1, lg: 2 }}
         spacing={8}
         mt={2}
       >

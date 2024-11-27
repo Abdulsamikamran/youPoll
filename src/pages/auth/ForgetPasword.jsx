@@ -47,19 +47,23 @@ const ForgetPasword = () => {
           mt={16}
           gap={2}
           direction={"column"}
-          maxW={"500px"}
+          maxW={"550px"}
           alignItems={"center"}
           justifyContent={"center"}
         >
           <Heading
             as="h1"
-            fontSize="36px"
+            fontSize={{ base: "26px", md: 36 }}
             fontWeight="semibold"
             color={useColorModeValue("black", "gray.200")}
           >
             Forget Password
           </Heading>
-          <Text textAlign={"center"} fontSize="16px" color="brand.900">
+          <Text
+            textAlign={"center"}
+            fontSize={{ base: "12px", md: "16px" }}
+            color="brand.900"
+          >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
             condimentum, lacus
           </Text>
@@ -73,18 +77,18 @@ const ForgetPasword = () => {
               id="email"
               type="email"
               placeholder="Your email"
-              rounded={"200px"}
+              rounded={"20px"}
             />
           </FormControl>
           <Button
-            mt={40}
+            mt={10}
             variant="solid"
             colorScheme="red"
             size="lg"
             w={"full"}
             fontSize="md"
             fontWeight="bold"
-            rounded={"200px"}
+            rounded={"20px"}
             onClick={handleNavigate}
           >
             Continue

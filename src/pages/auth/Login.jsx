@@ -15,6 +15,9 @@ import {
   useDisclosure,
   Box,
   Image,
+  InputRightElement,
+  IconButton,
+  InputGroup,
 } from "@chakra-ui/react";
 
 import CustomStepper from "./components/CustomStepper";
@@ -23,6 +26,7 @@ import logo from "../../../assets/logo.svg";
 import google from "../../../assets/google.png";
 import { useNavigate } from "react-router-dom";
 import CustomInput from "../../components/CustomInput";
+import { ViewIcon, ViewOffIcon } from "@chakra-ui/icons";
 const steps = [
   { description: "Login Process" },
   { description: "2 step Verification" },
@@ -30,6 +34,8 @@ const steps = [
 ];
 
 function Login() {
+  const [showPassword, setShowPassword] = useState(false);
+
   const [activeStep, setActiveStep] = useState(0);
   const navigate = useNavigate();
   const handleClick = () => {
@@ -38,6 +44,10 @@ function Login() {
   const nextStep = () =>
     setActiveStep((prev) => Math.min(prev + 1, steps.length - 1));
   const prevStep = () => setActiveStep((prev) => Math.max(prev - 1, 0));
+
+  const togglePasswordVisibility = () => {
+    setShowPassword((prev) => !prev);
+  };
 
   return (
     <Box bg={"white"} px={6} w={"full"} h={"100vh"}>
@@ -48,7 +58,6 @@ function Login() {
         left={{ base: 2, md: 10 }}
       />
       <Flex
-        // bg={"white"}
         py={{ base: 0, md: 6 }}
         w={"full"}
         gap={3}
@@ -66,58 +75,73 @@ function Login() {
           mt={{ base: 8, md: 16 }}
           gap={6}
           direction={"column"}
-          maxW={"500px"}
+          maxW={"550px"}
           alignItems={"center"}
           justifyContent={"center"}
         >
           <Heading
             as="h1"
-            fontSize="36px"
+            fontSize={{ base: "26px", md: 36 }}
             fontWeight="semibold"
             color={useColorModeValue("black", "gray.200")}
           >
             Login Now!
           </Heading>
           <Text
+            px={{ base: 4, sm: 0 }}
             textAlign={"center"}
-            maxW={"400px"}
-            fontSize="16px"
+            maxW={"full"}
+            fontSize={{ base: "12px", md: "12px" }}
             color="brand.900"
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur
             condimentum, lacus
           </Text>
 
-          <FormControl>
+          <FormControl px={{ base: 4, sm: 0 }}>
             <FormLabel fontSize={"18px"} htmlFor="email">
               Email Address
             </FormLabel>
             <CustomInput
               variant="redOutline"
-              rounded={"200px"}
+              rounded={"20px"}
               placeholder="Your email"
               py={6}
               id="email"
               type="email"
             />
           </FormControl>
-          <FormControl>
-            <FormLabel htmlFor="password">Password</FormLabel>
-            <CustomInput
-              variant="redOutline"
-              py={6}
-              id="password"
-              type="password"
-              placeholder="Your password"
-              rounded={"200px"}
-            />
+          <FormControl px={{ base: 4, sm: 0 }}>
+            <FormLabel fontSize="16px" htmlFor="password">
+              Password
+            </FormLabel>
+            <InputGroup>
+              <CustomInput
+                w="full"
+                variant="redOutline"
+                py={6}
+                id="password"
+                type={showPassword ? "text" : "password"}
+                placeholder="Your password"
+                rounded="18px"
+              />
+              <InputRightElement height="full">
+                <IconButton
+                  _hover={{ bg: "none" }}
+                  variant="ghost"
+                  aria-label={showPassword ? "Hide password" : "Show password"}
+                  icon={showPassword ? <ViewOffIcon /> : <ViewIcon />}
+                  onClick={togglePasswordVisibility}
+                />
+              </InputRightElement>
+            </InputGroup>
           </FormControl>
-          <Flex w={"full"} justifyContent={"end"}>
+          <Flex w={"full"} px={{ base: 4, sm: 0 }} justifyContent={"end"}>
             <Link fontSize="14px" color="red" href="/forgetPassword">
               Forgot password?
             </Link>
           </Flex>
-          <HStack w={"full"} justify="space-between">
+          <HStack px={{ base: 4, sm: 0 }} w={"full"} justify="space-between">
             <Checkbox colorScheme="red" defaultChecked>
               <Text
                 fontSize="sm"
@@ -128,6 +152,7 @@ function Login() {
             </Checkbox>
           </HStack>
           <Button
+            mx={{ base: 4, sm: 0 }}
             w={"full"}
             variant="solid"
             colorScheme="red"
@@ -135,7 +160,7 @@ function Login() {
             fontSize="md"
             fontWeight="bold"
             onClick={handleClick}
-            rounded={"200px"}
+            rounded={"20px"}
           >
             Login
           </Button>
@@ -146,7 +171,7 @@ function Login() {
             justifyContent={"center"}
           >
             <Divider />
-            <Text fontSize={"16px"} color={"brand.900"} w={"300px"}>
+            <Text fontSize={"16px"} color={"brand.900"} whiteSpace={"nowrap"}>
               or login with
             </Text>
             <Divider />
@@ -165,7 +190,12 @@ function Login() {
               <Text>Sign in with Google</Text>
             </Flex>
           </Button>
-          <Flex gap={2} mt={2} justifyContent={"center"}>
+          <Flex
+            pb={{ base: 16, md: 0 }}
+            gap={2}
+            mt={2}
+            justifyContent={"center"}
+          >
             <> Not registered yet?</>
             <Link href="/createAccount" color={"red"}>
               Create an account
