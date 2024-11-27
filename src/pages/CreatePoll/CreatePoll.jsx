@@ -60,7 +60,7 @@ const CreatePoll = () => {
           </Text>
           <Box
             my={2}
-            maxW="800px"
+            maxW="1400px"
             mx="auto"
             p={{ base: 3, md: 8 }}
             bg="white"

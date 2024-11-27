@@ -29,7 +29,7 @@ import { CiFlag1, CiShare2, CiBookmark } from "react-icons/ci";
 const PollCard = () => {
   const avatars = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6];
   return (
-    <Box w={"full"}>
+    <Box bg={"white"} w={"full"}>
       <Flex
         rounded={"lg"}
         p={{ lg: 5, xl: 10 }}

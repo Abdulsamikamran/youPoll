@@ -35,7 +35,7 @@ const userData = [
 
 const Requested = () => {
   return (
-    <Box minH="100vh " w={"full"}>
+    <Box w={"full"}>
       <Flex
         w={"full"}
         py={{ base: 4, md: 0 }}

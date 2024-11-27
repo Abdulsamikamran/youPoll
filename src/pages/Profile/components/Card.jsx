@@ -12,7 +12,7 @@ const Card = ({ buttonText, variant }) => {
       display="flex"
       alignItems="center"
       maxW="full"
-      py={{ base: 8, xl: 0 }}
+      py={{ base: 8, xl: 7 }}
     >
       <Avatar
         size={{ base: "lg", xl: "xl" }}

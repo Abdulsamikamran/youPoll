@@ -73,7 +73,7 @@ const Profile = () => {
   const avatars = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6];
   const navigate = useNavigate();
   return (
-    <Box bg={"white"} overflow={"hidden"} w={"full"} h={"full"}>
+    <Box overflow={"hidden"} w={"full"} h={"full"}>
       <Box display={{ base: "none", md: "block" }}>
         <Layout>
           <Image position={"relative"} h={"auto"} src={hero} w={"full"} />

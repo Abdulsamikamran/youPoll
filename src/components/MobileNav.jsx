@@ -73,7 +73,7 @@ const MobileNav = () => {
 
   return (
     <>
-      <Flex justify={"space-between"} p={6} alignItems={"center"}>
+      <Flex justify={"space-between"} bg={"white"} p={6} alignItems={"center"}>
         <IconButton
           border={"none"}
           icon={<HamburgerIcon boxSize={6} />}
@@ -301,6 +301,7 @@ const MobileNav = () => {
         justify={"space-between"}
         alignItems={"center"}
         gap={4}
+        bg={"white"}
       >
         <Box w="full" maxW={{ md: "250px", lg: "300px", xl: "400px" }}>
           <Popover placement="bottom-start" isLazy>

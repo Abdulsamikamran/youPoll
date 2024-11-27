@@ -47,6 +47,7 @@ import modal2 from "../../assets/modal2.svg";
 
 import { useNavigate } from "react-router-dom";
 import { CopyIcon } from "@chakra-ui/icons";
+import { FaRegCommentDots } from "react-icons/fa6";
 
 const PostCard = ({
   username,
@@ -230,7 +231,7 @@ const PostCard = ({
           color="white"
           colorScheme="red"
           fontSize={{ md: "10px", lg: "sm" }}
-          display={{ base: "none", md: "block" }}
+          display={{ base: "none", lg: "block" }}
           px={2}
           py={2}
           fontWeight="normal"
@@ -294,6 +295,21 @@ const PostCard = ({
           </MenuList>
         </Menu>
       </Flex>
+
+      <Flex
+        fontSize={{ base: "10px", md: "16px" }}
+        color="gray.500"
+        display={{ base: "flex", lg: "none" }}
+        gap={4}
+        py={3}
+      >
+        <Text>+170 Views</Text>
+        <HStack spacing={1}>
+          <Icon as={FaRegCommentDots} />
+          <Text>1200</Text>
+        </HStack>
+      </Flex>
+
       <Flex
         w="100%"
         h="100%"
@@ -321,8 +337,8 @@ const PostCard = ({
           Vote
         </Button>
         <Text
-          fontSize={"10px"}
-          display={{ base: "block", md: "none" }}
+          fontSize={{ base: "10px", md: 16 }}
+          display={{ base: "block", lg: "none" }}
           fontWeight={"semibold"}
           color={"brand.100"}
           onClick={onToggle}
@@ -368,7 +384,6 @@ const PostCard = ({
           </ModalContent>
         </Modal>
         <Flex alignItems="center">
-          {/* <Box mt={-6}> */}
           {avatars.map((src, i) => (
             <Avatar
               key={i}
@@ -383,7 +398,6 @@ const PostCard = ({
               src={src}
             />
           ))}
-          {/* </Box> */}
 
           <Flex gap={8} w={"full"} alignItems="center">
             <Text

@@ -42,7 +42,7 @@ const Comment = () => {
           fugiat harum ullam aspernatur dicta doloribus qui quo corrupti natus
           reprehenderit...
         </Text>
-        <Flex gap={5} mt={4}>
+        <Flex justify={{ base: "center", lg: "start" }} gap={5} mt={4}>
           <Button
             variant={"outline"}
             leftIcon={<Image src={pen} />}
