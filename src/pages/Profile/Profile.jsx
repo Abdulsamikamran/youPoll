@@ -76,49 +76,13 @@ const Profile = () => {
     <Box overflow={"hidden"} w={"full"} h={"full"}>
       <Box display={{ base: "none", md: "block" }}>
         <Layout>
-          <Image position={"relative"} h={"auto"} src={hero} w={"full"} />
-          <Flex
-            display={{ base: "flex", md: "none" }}
-            overflow={"hidden"}
-            color={"white"}
-            align={"end"}
-            position={"absolute"}
-            top={{ base: "100px", sm: "120px" }}
-            px={{ base: 8, sm: 16 }}
-            gap={2}
-            w={"full"}
-            justify={"space-between"}
-          >
-            <Stack spacing={0} justify={"center"} align={"center"}>
-              <Text fontSize={{ base: "16px" }} fontWeight={"bold"}>
-                2.1k
-              </Text>
-              <Text fontSize={{ base: "12px" }}>Followers</Text>
-            </Stack>
-            <Stack spacing={0} justify={"center"} align={"center"}>
-              <Image src={avatar} w={{ base: 20 }} />
-              <Text fontWeight={"bold"} fontSize={{ base: 14 }}>
-                Abram Marvyn
-              </Text>
-              <Text fontSize={{ base: 10 }}>@abram_marvyn</Text>
-              <Text fontSize={{ base: 8 }} color={"gray.300"}>
-                Joined January 2023
-              </Text>
-            </Stack>
-            <Stack spacing={0} justify={"center"} align={"center"}>
-              <Text fontSize={{ base: "16px" }} fontWeight={"bold"}>
-                400
-              </Text>
-              <Text fontSize={{ base: "12px" }}>Following</Text>
-            </Stack>
-          </Flex>
           <Container maxW={"1600px"} mx={"auto"}>
             <Flex gap={4}>
               <Flex
                 flex={0.2}
                 w={{ md: "200px", lg: "300px", xl: "400px" }}
                 gap={6}
-                mt={{ md: -10, xl: -20 }}
+                mt={5}
                 direction={"column"}
               >
                 <VStack

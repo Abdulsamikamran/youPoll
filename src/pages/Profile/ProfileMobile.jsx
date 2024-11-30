@@ -59,7 +59,7 @@ const tabItems = [
     component: <Requests />,
   },
   {
-    label: "Bookmarks",
+    label: "I Like",
     icon: <IoBookmarksOutline size={20} />,
     component: <History />,
   },
@@ -72,43 +72,45 @@ const tabItems = [
 
 const ProfileMobile = () => {
   return (
-    <Box w={"full"} h={"full"} bg={"white"}>
+    <Box w={"full"} h={"full"}>
       <Layout>
-        <Image position={"relative"} h={"auto"} src={banner} w={"full"} />
-        <Flex
-          overflow={"hidden"}
-          color={"white"}
-          align={"end"}
-          position={"absolute"}
-          top={{ base: "100px", sm: "120px" }}
-          px={{ base: 8, sm: 16 }}
-          gap={2}
-          w={"full"}
-          justify={"space-between"}
-        >
-          <Stack spacing={0} justify={"center"} align={"center"}>
-            <Text fontSize={{ base: "16px" }} fontWeight={"bold"}>
-              2.1k
-            </Text>
-            <Text fontSize={{ base: "12px" }}>Followers</Text>
-          </Stack>
-          <Stack spacing={0} justify={"center"} align={"center"}>
-            <Image src={avatar} w={{ base: 20 }} />
-            <Text fontWeight={"bold"} fontSize={{ base: 14 }}>
-              Abram Marvyn
-            </Text>
-            <Text fontSize={{ base: 10 }}>@abram_marvyn</Text>
-            <Text fontSize={{ base: 8 }} color={"gray.300"}>
-              Joined January 2023
-            </Text>
-          </Stack>
-          <Stack spacing={0} justify={"center"} align={"center"}>
-            <Text fontSize={{ base: "16px" }} fontWeight={"bold"}>
-              400
-            </Text>
-            <Text fontSize={{ base: "12px" }}>Following</Text>
-          </Stack>
-        </Flex>
+        {/* <Image position={"relative"} h={"auto"} src={banner} w={"full"} /> */}
+        <Box position={"relative"} bg={"white"} h={"180px"} w={"full"}>
+          <Flex
+            overflow={"hidden"}
+            color={"black"}
+            align={"end"}
+            position={"absolute"}
+            top={{ base: "20px", sm: "20px" }}
+            px={{ base: 8, sm: 16 }}
+            gap={2}
+            w={"full"}
+            justify={"space-between"}
+          >
+            <Stack spacing={0} justify={"center"} align={"center"}>
+              <Text fontSize={{ base: "16px" }} fontWeight={"bold"}>
+                2.1k
+              </Text>
+              <Text fontSize={{ base: "12px" }}>Followers</Text>
+            </Stack>
+            <Stack spacing={0} justify={"center"} align={"center"}>
+              <Image src={avatar} w={{ base: 20 }} />
+              <Text fontWeight={"bold"} fontSize={{ base: 14 }}>
+                Abram Marvyn
+              </Text>
+              <Text fontSize={{ base: 10 }}>@abram_marvyn</Text>
+              <Text fontSize={{ base: 8 }} color={"gray.900"}>
+                Joined January 2023
+              </Text>
+            </Stack>
+            <Stack spacing={0} justify={"center"} align={"center"}>
+              <Text fontSize={{ base: "16px" }} fontWeight={"bold"}>
+                400
+              </Text>
+              <Text fontSize={{ base: "12px" }}>Following</Text>
+            </Stack>
+          </Flex>
+        </Box>
         <Flex gap={10} p={5}>
           <Box>
             <Text fontSize={"15px"} color={"gray.500"} fontWeight={"bold"}>

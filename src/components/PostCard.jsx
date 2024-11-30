@@ -64,7 +64,6 @@ const PostCard = ({
   };
   const navigate = useNavigate();
   const avatars = [avatar1, avatar2, avatar3, avatar4, avatar5, avatar6];
-  const { isOpen: isCollapse, onToggle } = useDisclosure();
   const {
     isOpen: isDeleteOpen,
     onOpen: onDeleteOpen,
@@ -77,6 +76,13 @@ const PostCard = ({
     onClose: onVoteClose,
   } = useDisclosure();
 
+  const [isCollapse, setIsCollapse] = useState(false);
+
+  const handleVoteClick = () => {
+    setIsCollapse(true);
+    onVoteOpen();
+  };
+
   return (
     <Box
       mb={8}
@@ -87,7 +93,7 @@ const PostCard = ({
       shadow="md"
     >
       <Flex justify={"space-between"}>
-        <Flex align="center" mb={4}>
+        <Flex align="center" mb={{ base: 1, md: 4 }}>
           <Avatar src={avatarSrc} name={username} size="md" mr={3} />
           <Box>
             <Text fontWeight="normal" fontSize="15px">
@@ -170,11 +176,10 @@ const PostCard = ({
             rounded={"md"}
             bg={"brand.100"}
             color={"white"}
-            py={4}
+            py={2}
             px={2}
           >
             <Image w={5} src={clock} />
-            <Text fontWeight={"semibold"}>Ending Soon: </Text>
             <Text>48:00:00</Text>
           </Flex>
         </Flex>
@@ -187,14 +192,19 @@ const PostCard = ({
         align={"center"}
         rounded={"md"}
         color={"brand.100"}
-        py={4}
+        py={2}
         px={2}
       >
         <Image w={4} mt={"0.9px"} src={clock2} />
-        <Text>Ending Soon: </Text>
+
         <Text fontWeight={"semibold"}>48h:00m:00s</Text>
       </Flex>
-      <Flex justifyContent="space-between" alignItems="center" w="full" mb={4}>
+      <Flex
+        justifyContent="space-between"
+        alignItems="center"
+        w="full"
+        mb={{ base: 2, md: 4 }}
+      >
         <Heading
           onClick={() => navigate("detail-page")}
           size={{ base: "sm", md: "md" }}
@@ -214,18 +224,21 @@ const PostCard = ({
           {category}
         </Box>
       </Flex>
-      <Text color="#5D5D66" fontSize={{ base: "13px", md: "18px" }} mb={4}>
+      <Text
+        color="#5D5D66"
+        fontSize={{ base: "13px", md: "18px" }}
+        mb={{ base: 2, md: 4 }}
+      >
         {description}
       </Text>
       <Image
         borderRadius="md"
-        mb={4}
+        mb={{ base: 2, md: 4 }}
         w="full"
         src={imageSrc}
         alt="Air Mobility"
       />
-      <Flex w="full" alignItems="center" mb={4} justifyContent="space-between">
-        <Heading size={{ base: "sm", md: "md" }}>{question}</Heading>
+      <Flex w="full" mb={4} justifyContent="end">
         <Button
           bgColor="brand.100"
           color="white"
@@ -235,25 +248,26 @@ const PostCard = ({
           px={2}
           py={2}
           fontWeight="normal"
-          onClick={onToggle}
+          // onClick={onToggle}
+          onClick={() => setIsCollapse(!isCollapse)}
           rounded="200px"
         >
           {isCollapse ? "Show Less" : "See Voting Result"}
         </Button>
       </Flex>
-      <Collapse in={isCollapse} animateOpacity>
-        <Box px={2}>
-          <Text color="gray.400" fontSize="14px">
-            Make a choice:
-          </Text>
-          <Poll />
-        </Box>
-      </Collapse>
+      {/* <Collapse in={isCollapse} animateOpacity> */}
+      <Box px={2}>
+        <Text color="gray.400" fontSize="14px">
+          Make a choice:
+        </Text>
+        <Poll isCollapse={isCollapse} />
+      </Box>
+      {/* </Collapse> */}
       <Flex
         w="full"
         py={6}
         my={4}
-        px={3}
+        px={6}
         justifyContent="space-between"
         borderTop="1px solid"
         borderBottom="1px solid"
@@ -265,28 +279,19 @@ const PostCard = ({
           alignItems="center"
           gap={2}
         >
-          <BiSolidLike color={liked ? "red" : "gray"} />
+          <BiSolidLike size={12} color={liked ? "red" : "gray"} />
           <Text fontSize={{ base: "10px", md: "16px" }}>Like</Text>
         </Flex>
 
         <Flex alignItems="center" gap={2}>
-          <BiSolidComment color="gray" />
+          <BiSolidComment size={12} color="gray" />
           <Text fontSize={{ base: "10px", md: "16px" }}>Comment</Text>
-        </Flex>
-
-        <Flex
-          display={{ base: "flex", lg: "none" }}
-          alignItems="center"
-          gap={2}
-        >
-          <Image src={repost} />
-          <Text fontSize={{ base: "10px", md: "16px" }}>Repost</Text>
         </Flex>
 
         <Menu>
           <MenuButton bg={"white"} cursor="pointer">
             <Flex alignItems="center" gap={2}>
-              <PiShareFatFill color="gray" />
+              <PiShareFatFill size={12} color="gray" />
               <Text fontSize={{ base: "10px", md: "16px" }}>Share</Text>
             </Flex>
           </MenuButton>
@@ -324,7 +329,7 @@ const PostCard = ({
         gap={{ base: 1, md: 0 }}
       >
         <Button
-          onClick={onVoteOpen}
+          onClick={handleVoteClick}
           bgColor="brand.100"
           colorScheme="red"
           color="white"
@@ -341,7 +346,7 @@ const PostCard = ({
           display={{ base: "block", lg: "none" }}
           fontWeight={"semibold"}
           color={"brand.100"}
-          onClick={onToggle}
+          onClick={() => setIsCollapse(!isCollapse)}
         >
           {isCollapse ? "Hide Voting Results" : "See Voting Result"}
         </Text>

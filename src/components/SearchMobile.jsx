@@ -25,7 +25,6 @@ const SearchMobile = () => {
   return (
     <Layout>
       <Box px={5} py={5}>
-        {/* Search Input */}
         <InputGroup>
           <InputLeftElement
             pointerEvents="none"
@@ -43,7 +42,6 @@ const SearchMobile = () => {
         </InputGroup>
       </Box>
 
-      {/* Tabs Component */}
       <Tabs>
         <TabList>
           {tabData.map((tab) => (
@@ -57,7 +55,7 @@ const SearchMobile = () => {
                 color: "brand.100",
               }}
               color="gray.400"
-              fontSize={{ base: 10, md: "sm", lg: "md" }}
+              fontSize={{ base: 12, md: "md", lg: "md" }}
             >
               {tab.label}
             </Tab>
@@ -65,44 +63,91 @@ const SearchMobile = () => {
         </TabList>
 
         <TabPanels>
-          {tabData.map((tab) => (
-            <TabPanel key={tab.key}>
-              <Flex direction="column" gap={4}>
-                {/* Here you could create the content dynamically as well */}
-                <Box w="400px" display="flex" justifyContent="space-between">
-                  <Flex align="center" gap={4}>
-                    <Box
-                      as="img"
-                      src={avatar2}
-                      alt="User Avatar"
-                      borderRadius="full"
-                    />
-                    <Box>
-                      <Box fontWeight="bold">Sam Willson</Box>
-                      <Box fontSize="sm" color="gray.500">
-                        @SamWill
-                      </Box>
-                    </Box>
-                  </Flex>
+          <TabPanel p={0}>
+            <Flex direction="column" w={"full"} gap={4}>
+              <Box
+                px={3}
+                bg={"white"}
+                py={6}
+                display="flex"
+                justifyContent="space-between"
+              >
+                <Flex align="center" gap={4}>
+                  <Box
+                    as="img"
+                    src={avatar2}
+                    alt="User Avatar"
+                    borderRadius="full"
+                  />
                   <Box>
-                    <Box
-                      as="button"
-                      px={4}
-                      py={2}
-                      border="1px solid"
-                      borderColor="red.400"
-                      borderRadius="full"
-                      color="red.400"
-                      fontWeight="semibold"
-                      _hover={{ bg: "red.100" }}
-                    >
-                      Follow
+                    <Box fontWeight="bold">Sam Willson</Box>
+                    <Box fontSize="sm" color="gray.500">
+                      @SamWill
                     </Box>
                   </Box>
+                </Flex>
+                <Box>
+                  <Box
+                    as="button"
+                    px={4}
+                    py={2}
+                    border="1px solid"
+                    borderColor="brand.100"
+                    borderRadius="full"
+                    color="brand.100"
+                    fontWeight="semibold"
+                    _hover={{ bg: "red.100" }}
+                  >
+                    Follow
+                  </Box>
                 </Box>
-              </Flex>
-            </TabPanel>
-          ))}
+              </Box>
+            </Flex>
+          </TabPanel>
+          <TabPanel p={0}>
+            <Flex py={4} bg={"white"} direction="column" w={"full"} gap={2}>
+              <Box
+                px={3}
+                bg={"white"}
+                display="flex"
+                justifyContent="space-between"
+              >
+                <Flex align="center" gap={4}>
+                  <Box
+                    as="img"
+                    src={avatar2}
+                    alt="User Avatar"
+                    borderRadius="full"
+                  />
+                  <Box>
+                    <Box fontWeight="bold">Sam Willson</Box>
+                    <Box fontSize="sm" color="gray.500">
+                      @ONPHIeducation
+                    </Box>
+                  </Box>
+                </Flex>
+                <Box>
+                  <Box
+                    as="button"
+                    px={4}
+                    py={2}
+                    border="1px solid"
+                    borderColor="brand.100"
+                    borderRadius="full"
+                    color="brand.100"
+                    fontWeight="semibold"
+                    _hover={{ bg: "red.100" }}
+                  >
+                    View polls
+                  </Box>
+                </Box>
+              </Box>
+              <Box ml={"80PX"} fontSize="sm" color="gray.500">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Qui et
+                accusantium quisquam ad.
+              </Box>
+            </Flex>
+          </TabPanel>
         </TabPanels>
       </Tabs>
     </Layout>

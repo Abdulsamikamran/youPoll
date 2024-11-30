@@ -64,8 +64,6 @@ import { BiLogOut } from "react-icons/bi";
 import facebook from "../../assets/facebook.svg";
 import insta from "../../assets/insta.svg";
 import twitter from "../../assets/twitter.svg";
-import { PiSignOutThin, PiUsersThreeLight } from "react-icons/pi";
-import { CiSettings } from "react-icons/ci";
 
 const MobileNav = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();

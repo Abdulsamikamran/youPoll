@@ -38,11 +38,11 @@ const Home = () => {
           px={{ base: 2, sm: 6, md: 12, xl: 20 }}
           w={"full"}
           h={{ base: "400px", md: "500px", lg: "650px" }}
-          bgImage={{ base: mainBannerMobile, md: mainBanner }}
-          bgColor={"brand.100"}
+          // bgImage={{ base: mainBannerMobile, md: mainBanner }}
+          bgColor={"white"}
           bgSize="cover"
           bgPos="center"
-          color="white"
+          color="black"
           textAlign="center"
         >
           <Text

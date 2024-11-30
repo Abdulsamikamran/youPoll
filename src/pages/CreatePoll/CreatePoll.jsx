@@ -22,6 +22,7 @@ import {
   Image,
   InputLeftElement,
   SimpleGrid,
+  useToast,
 } from "@chakra-ui/react";
 import { AddIcon, CloseIcon } from "@chakra-ui/icons";
 import { useState } from "react";
@@ -31,9 +32,21 @@ import tick from "/assets/redtick.svg";
 
 const CreatePoll = () => {
   const [options, setOptions] = useState(["Option 1", "Option 2"]);
+  const toast = useToast();
 
   const handleAddOption = () => {
-    setOptions([...options, `Option ${options.length + 1}`]);
+    if (options.length < 6) {
+      setOptions([...options, `Option ${options.length + 1}`]);
+    } else {
+      toast({
+        title: "Maximum options reached.",
+        description: "You can only add up to 6 options.",
+        status: "error",
+        duration: 3000, // Toast duration in milliseconds
+        isClosable: true, // Allow user to close the toast
+        position: "top", // Position of the toast
+      });
+    }
   };
 
   const handleRemoveOption = (index) => {
@@ -163,8 +176,7 @@ const CreatePoll = () => {
                     <HStack key={index} spacing={3}>
                       <InputGroup size="sm" key={index}>
                         <Input
-                          value={option}
-                          readOnly
+                          placeholder={option}
                           {...inputStyles}
                           variant="outline"
                           borderColor={useColorModeValue(
@@ -202,7 +214,7 @@ const CreatePoll = () => {
                     </Button>
 
                     <Text fontSize="sm" color="brand.100">
-                      or Add "Other"
+                      "6 maximum"
                     </Text>
                   </Flex>
                 </VStack>
@@ -220,15 +232,17 @@ const CreatePoll = () => {
                   </FormLabel>
                   <Select
                     maxW={"300px"}
-                    placeholder="Entertainment"
+                    // placeholder="Entertainment
                     size="sm"
                     rounded={"md"}
                     h={10}
                     {...inputStyles}
                   >
                     <option>Education</option>
-                    <option>Business</option>
+                    <option>Entertainment</option>
+                    <option>Business & politics</option>
                     <option>Sports</option>
+                    <option>Life style</option>
                   </Select>
                 </FormControl>
               </VStack>
@@ -267,9 +281,8 @@ const CreatePoll = () => {
                       h={10}
                       {...inputStyles}
                     >
-                      <option>Education</option>
-                      <option>Business</option>
-                      <option>Sports</option>
+                      <option>Anyone</option>
+                      <option>My followers only</option>
                     </Select>
                   </FormControl>
                 </Flex>

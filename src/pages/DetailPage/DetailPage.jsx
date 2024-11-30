@@ -63,7 +63,6 @@ const DetailPage = () => {
                   px={2}
                 >
                   <Image w={5} src={clock} />
-                  <Text fontWeight={"semibold"}>Ending Soon: </Text>
                   <Text>48:00:00</Text>
                 </Flex>
                 <Flex fontSize={{ md: 10, lg: "sm" }} flex={0.3} gap={3}>

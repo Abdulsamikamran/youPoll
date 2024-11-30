@@ -7,10 +7,7 @@ import { TiUser } from "react-icons/ti";
 import { Flex, Text, Stack, useToken } from "@chakra-ui/react";
 
 const BottomNav = () => {
-  const [brandColor, defaultColor] = useToken("colors", [
-    "brand.100",
-    "gray.500",
-  ]);
+  const [brandColor, defaultColor] = useToken("colors", ["brand.100", "black"]);
 
   const navItems = [
     { to: "/", icon: RiHome5Line, label: "Home" },
@@ -22,10 +19,11 @@ const BottomNav = () => {
   return (
     <Flex
       w="full"
-      h="90px"
+      h="60px"
       justify="space-between"
       position="fixed"
       zIndex={2}
+      align={"center"}
       bottom={0}
       display={{ base: "flex", md: "none" }}
       bg="white"
@@ -42,8 +40,10 @@ const BottomNav = () => {
           })}
         >
           <Stack align="center" spacing={1}>
-            <item.icon size={28} />
-            <Text fontWeight="medium">{item.label}</Text>
+            <item.icon size={18} />
+            <Text fontWeight="normal" fontSize={"14px"}>
+              {item.label}
+            </Text>
           </Stack>
         </NavLink>
       ))}
