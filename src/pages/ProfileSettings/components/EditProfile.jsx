@@ -274,39 +274,6 @@ const EditProfile = () => {
           </Button>
         </HStack>
       </Box>
-
-      <Box
-        bg="gray.50"
-        borderRadius="lg"
-        p={{ base: 2, md: 8 }}
-        mt={8}
-        boxShadow="md"
-      >
-        <Text fontSize={{ base: "lg", md: "2xl" }} fontWeight="normal" mb={4}>
-          Background Image
-        </Text>
-        <Box position={"relative"}>
-          <Image
-            src={background}
-            w={"full"}
-            alt="Background"
-            borderRadius="lg"
-            mb={4}
-          />
-          <Button
-            position={"absolute"}
-            right={5}
-            top={10}
-            zIndex={1}
-            leftIcon={<FiUpload />}
-            colorScheme="gray"
-            bg={"gray.50"}
-            py={6}
-          >
-            Upload Cover
-          </Button>
-        </Box>
-      </Box>
     </Box>
   );
 };

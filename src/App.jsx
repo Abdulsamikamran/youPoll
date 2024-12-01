@@ -15,10 +15,12 @@ import Bookmarks from "./pages/Bookmarks/Bookmarks";
 import Interests from "./pages/auth/Interests";
 import Notifications from "./pages/Notifications/Notifications";
 import SearchMobile from "./components/SearchMobile";
+import ScrollToTop from "./components/ScrollToTop";
 
 const App = () => {
   return (
     <Router>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/detail-page" element={<DetailPage />} />

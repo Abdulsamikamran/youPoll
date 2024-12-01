@@ -274,13 +274,7 @@ const CreatePoll = () => {
                     <FormLabel mb={4} fontWeight={"normal"} htmlFor="email">
                       Edit vote permissions
                     </FormLabel>
-                    <Select
-                      placeholder="Nobody"
-                      size="sm"
-                      rounded={"md"}
-                      h={10}
-                      {...inputStyles}
-                    >
+                    <Select size="sm" rounded={"md"} h={10} {...inputStyles}>
                       <option>Anyone</option>
                       <option>My followers only</option>
                     </Select>
