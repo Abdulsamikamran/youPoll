@@ -100,7 +100,7 @@ function Login() {
 
           <FormControl px={{ base: 4, sm: 0 }}>
             <FormLabel fontSize={"18px"} htmlFor="email">
-              Email Address
+              Email Address*
             </FormLabel>
             <CustomInput
               variant="redOutline"
@@ -113,7 +113,7 @@ function Login() {
           </FormControl>
           <FormControl px={{ base: 4, sm: 0 }}>
             <FormLabel fontSize="16px" htmlFor="password">
-              Password
+              Password*
             </FormLabel>
             <InputGroup>
               <CustomInput

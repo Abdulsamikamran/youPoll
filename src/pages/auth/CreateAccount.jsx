@@ -17,6 +17,12 @@ import {
   InputGroup,
   InputRightElement,
   IconButton,
+  VStack,
+  Select,
+  MenuItem,
+  MenuList,
+  Menu,
+  MenuButton,
 } from "@chakra-ui/react";
 
 import logo from "../../../assets/logo.svg";
@@ -32,6 +38,15 @@ const CreateAccount = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
+  const [selectedOption, setSelectedOption] = useState("");
+  const [otherGender, setOtherGender] = useState("");
+
+  const handleSelect = (value) => {
+    setSelectedOption(value);
+    if (value !== "Other") {
+      setOtherGender("");
+    }
+  };
   const togglePasswordVisibility = () => {
     setShowPassword((prev) => !prev);
   };
@@ -85,7 +100,7 @@ const CreateAccount = () => {
           <SimpleGrid w={"full"} columns={{ base: 1, md: 2 }} spacing={6}>
             <FormControl>
               <FormLabel fontSize="16px" htmlFor="name">
-                Full Name
+                Full Name*
               </FormLabel>
               <CustomInput
                 variant="redOutline"
@@ -99,7 +114,7 @@ const CreateAccount = () => {
 
             <FormControl>
               <FormLabel fontSize="16px" htmlFor="username">
-                Username
+                Username*
               </FormLabel>
               <CustomInput
                 w="full"
@@ -113,7 +128,7 @@ const CreateAccount = () => {
             </FormControl>
             <FormControl>
               <FormLabel fontSize="16px" htmlFor="email">
-                Email Address
+                Email Address*
               </FormLabel>
               <CustomInput
                 w="full"
@@ -128,7 +143,7 @@ const CreateAccount = () => {
 
             <FormControl>
               <FormLabel fontSize="16px" htmlFor="dob">
-                Date of Birth
+                Date of Birth*
               </FormLabel>
               <CustomInput
                 w="full"
@@ -142,7 +157,7 @@ const CreateAccount = () => {
             {/* Password */}
             <FormControl>
               <FormLabel fontSize="16px" htmlFor="password">
-                Password
+                Password*
               </FormLabel>
               <InputGroup>
                 <CustomInput
@@ -169,7 +184,7 @@ const CreateAccount = () => {
             {/* Confirm Password */}
             <FormControl>
               <FormLabel fontSize="16px" htmlFor="confirm-password">
-                Confirm Password
+                Confirm Password*
               </FormLabel>
               <InputGroup>
                 <CustomInput
@@ -200,7 +215,7 @@ const CreateAccount = () => {
 
             <FormControl>
               <FormLabel fontSize="16px" htmlFor="address">
-                Address
+                Address*
               </FormLabel>
               <CustomInput
                 w="full"
@@ -212,19 +227,73 @@ const CreateAccount = () => {
                 rounded="18px"
               />
             </FormControl>
+
             <FormControl>
               <FormLabel fontSize="16px" htmlFor="gender">
-                Gender
+                Gender*
               </FormLabel>
-              <CustomInput
-                w="full"
-                variant="redOutline"
-                py={6}
-                id="gender"
-                type="text"
-                placeholder="Gender"
-                rounded="18px"
-              />
+              <Menu>
+                <MenuButton
+                  fontWeight={"normal"}
+                  borderColor="gray.400"
+                  _hover={{ borderColor: "red.600" }}
+                  _focus={{
+                    borderColor: "red.400",
+                    boxShadow: "none",
+                    outline: "none",
+                  }}
+                  _active={{
+                    borderColor: "red.400",
+                    boxShadow: "none",
+                    outline: "none",
+                  }}
+                  as={Button}
+                  w="full"
+                  variant="outline"
+                  py={6}
+                  rounded="18px"
+                  textAlign="left"
+                >
+                  {selectedOption || "Select Gender"}
+                </MenuButton>
+                <MenuList w="full">
+                  {[
+                    "Male",
+                    "Female",
+                    "Non-binary",
+                    "Genderqueer",
+                    "Agender",
+                    "Genderfluid",
+                    "Transgender Male",
+                    "Transgender Female",
+                    "Prefer not to say",
+                  ].map((option) => (
+                    <MenuItem
+                      key={option}
+                      onClick={() => handleSelect(option)}
+                      value={option}
+                    >
+                      {option}
+                    </MenuItem>
+                  ))}
+                  <MenuItem onClick={() => handleSelect("Other")} value="Other">
+                    Other
+                  </MenuItem>
+                </MenuList>
+              </Menu>
+              {selectedOption === "Other" && (
+                <VStack align="start" mt={4} spacing={2}>
+                  <CustomInput
+                    w="full"
+                    variant="redOutline"
+                    py={6}
+                    placeholder="Please specify"
+                    value={otherGender}
+                    onChange={(e) => setOtherGender(e.target.value)}
+                    rounded="18px"
+                  />
+                </VStack>
+              )}
             </FormControl>
           </SimpleGrid>
           <Flex w={"full"} justifyContent={"end"}>
