@@ -333,7 +333,8 @@ const CreateAccount = () => {
                 fontSize="sm"
                 color={useColorModeValue("gray.500", "gray.400")}
               >
-                I accept all the terms and conditions
+                I have read and agreed to the <u>privacy policy</u>,{" "}
+                <u>terms of service</u>, and <u>community guidlines</u>
               </Text>
             </Checkbox>
           </HStack>
