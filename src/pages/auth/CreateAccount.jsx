@@ -72,10 +72,10 @@ const CreateAccount = () => {
         justifyContent={"center"}
       >
         <Flex
+          maxW={"600px"}
           mt={16}
           gap={{ base: 3, md: 6 }}
           direction={"column"}
-          maxW={"500px"}
           alignItems={"center"}
           justifyContent={"center"}
         >
@@ -89,7 +89,7 @@ const CreateAccount = () => {
           </Heading>
           <Text
             textAlign={"center"}
-            maxW={"400px"}
+            maxW={"500px"}
             fontSize={{ base: "12px", md: "16px" }}
             color="brand.900"
           >
@@ -98,6 +98,7 @@ const CreateAccount = () => {
           </Text>
 
           <SimpleGrid w={"full"} columns={{ base: 1, md: 2 }} spacing={6}>
+            {/* Full Name */}
             <FormControl>
               <FormLabel fontSize="16px" htmlFor="name">
                 Full Name*
@@ -112,6 +113,7 @@ const CreateAccount = () => {
               />
             </FormControl>
 
+            {/* Username */}
             <FormControl>
               <FormLabel fontSize="16px" htmlFor="username">
                 Username*
@@ -126,7 +128,9 @@ const CreateAccount = () => {
                 rounded="18px"
               />
             </FormControl>
-            <FormControl>
+
+            {/* Email (Full Width) */}
+            <FormControl gridColumn={{ base: "1", md: "1 / span 2" }}>
               <FormLabel fontSize="16px" htmlFor="email">
                 Email Address*
               </FormLabel>
@@ -141,6 +145,23 @@ const CreateAccount = () => {
               />
             </FormControl>
 
+            {/* Phone Number (Full Width) */}
+            <FormControl gridColumn={{ base: "1", md: "1 / span 2" }}>
+              <FormLabel fontSize="16px" htmlFor="phone">
+                Phone Number*
+              </FormLabel>
+              <CustomInput
+                w="full"
+                variant="redOutline"
+                py={6}
+                id="phone"
+                type="tel"
+                placeholder="Your phone number"
+                rounded="18px"
+              />
+            </FormControl>
+
+            {/* Date of Birth */}
             <FormControl>
               <FormLabel fontSize="16px" htmlFor="dob">
                 Date of Birth*
@@ -154,80 +175,8 @@ const CreateAccount = () => {
                 rounded="18px"
               />
             </FormControl>
-            {/* Password */}
-            <FormControl>
-              <FormLabel fontSize="16px" htmlFor="password">
-                Password*
-              </FormLabel>
-              <InputGroup>
-                <CustomInput
-                  w="full"
-                  variant="redOutline"
-                  py={6}
-                  id="password"
-                  type={showPassword ? "text" : "password"}
-                  placeholder="Your password"
-                  rounded="18px"
-                />
-                <InputRightElement height="full">
-                  <IconButton
-                    variant="ghost"
-                    aria-label={
-                      showPassword ? "Hide password" : "Show password"
-                    }
-                    icon={showPassword ? <ViewOffIcon /> : <ViewIcon />}
-                    onClick={togglePasswordVisibility}
-                  />
-                </InputRightElement>
-              </InputGroup>
-            </FormControl>
-            {/* Confirm Password */}
-            <FormControl>
-              <FormLabel fontSize="16px" htmlFor="confirm-password">
-                Confirm Password*
-              </FormLabel>
-              <InputGroup>
-                <CustomInput
-                  w="full"
-                  variant="redOutline"
-                  py={6}
-                  id="password"
-                  type={showPassword ? "text" : "password"}
-                  placeholder="Confirm password"
-                  rounded="18px"
-                />
-                <InputRightElement height="full">
-                  <IconButton
-                    variant="ghost"
-                    bg={"none"}
-                    _active={{
-                      bgColor: "none",
-                    }}
-                    aria-label={
-                      showPassword ? "Hide password" : "Show password"
-                    }
-                    icon={showConfirmPassword ? <ViewOffIcon /> : <ViewIcon />}
-                    onClick={toggleConfirmPasswordVisibility}
-                  />
-                </InputRightElement>
-              </InputGroup>
-            </FormControl>
 
-            <FormControl>
-              <FormLabel fontSize="16px" htmlFor="address">
-                Address*
-              </FormLabel>
-              <CustomInput
-                w="full"
-                variant="redOutline"
-                py={6}
-                id="address"
-                type="text"
-                placeholder="Your address"
-                rounded="18px"
-              />
-            </FormControl>
-
+            {/* Gender */}
             <FormControl>
               <FormLabel fontSize="16px" htmlFor="gender">
                 Gender*
@@ -295,7 +244,84 @@ const CreateAccount = () => {
                 </VStack>
               )}
             </FormControl>
+
+            {/* Address (Full Width) */}
+            <FormControl gridColumn={{ base: "1", md: "1 / span 2" }}>
+              <FormLabel fontSize="16px" htmlFor="address">
+                Address*
+              </FormLabel>
+              <CustomInput
+                w="full"
+                variant="redOutline"
+                py={6}
+                id="address"
+                type="text"
+                placeholder="Your address"
+                rounded="18px"
+              />
+            </FormControl>
+
+            {/* Password */}
+            <FormControl>
+              <FormLabel fontSize="16px" htmlFor="password">
+                Password*
+              </FormLabel>
+              <InputGroup>
+                <CustomInput
+                  w="full"
+                  variant="redOutline"
+                  py={6}
+                  id="password"
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Your password"
+                  rounded="18px"
+                />
+                <InputRightElement height="full">
+                  <IconButton
+                    variant="ghost"
+                    aria-label={
+                      showPassword ? "Hide password" : "Show password"
+                    }
+                    icon={showPassword ? <ViewOffIcon /> : <ViewIcon />}
+                    onClick={togglePasswordVisibility}
+                  />
+                </InputRightElement>
+              </InputGroup>
+            </FormControl>
+
+            {/* Confirm Password */}
+            <FormControl>
+              <FormLabel fontSize="16px" htmlFor="confirm-password">
+                Confirm Password*
+              </FormLabel>
+              <InputGroup>
+                <CustomInput
+                  w="full"
+                  variant="redOutline"
+                  py={6}
+                  id="confirm-password"
+                  type={showConfirmPassword ? "text" : "password"}
+                  placeholder="Confirm password"
+                  rounded="18px"
+                />
+                <InputRightElement height="full">
+                  <IconButton
+                    variant="ghost"
+                    bg={"none"}
+                    _active={{
+                      bgColor: "none",
+                    }}
+                    aria-label={
+                      showConfirmPassword ? "Hide password" : "Show password"
+                    }
+                    icon={showConfirmPassword ? <ViewOffIcon /> : <ViewIcon />}
+                    onClick={toggleConfirmPasswordVisibility}
+                  />
+                </InputRightElement>
+              </InputGroup>
+            </FormControl>
           </SimpleGrid>
+
           <Flex w={"full"} justifyContent={"end"}>
             <Link fontSize="14px" color="red" href="/forgetPassword">
               Forgot password?
