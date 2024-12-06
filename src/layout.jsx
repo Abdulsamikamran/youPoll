@@ -9,7 +9,7 @@ import BottomNav from "./components/BottomNav";
 
 const Layout = ({ children }) => {
   return (
-    <Flex position={"relative"} direction="column" minH="100vh">
+    <Flex position={"relative"} w={"full"} direction="column" minH="100vh">
       <Box display={{ base: "none", lg: "block" }}>
         <Navbar />
       </Box>

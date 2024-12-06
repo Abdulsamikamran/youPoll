@@ -6,6 +6,7 @@ import ForgetPasword from "./pages/auth/ForgetPasword";
 import ChangePassword from "./pages/auth/ChangePassword";
 import CreateAccount from "./pages/auth/CreateAccount";
 import Home from "./pages/home/home";
+import "@fontsource/raleway";
 import DetailPage from "./pages/DetailPage/DetailPage";
 import CreatePoll from "./pages/CreatePoll/CreatePoll";
 import Profile from "./pages/Profile/Profile";
@@ -16,6 +17,8 @@ import Interests from "./pages/auth/Interests";
 import Notifications from "./pages/Notifications/Notifications";
 import SearchMobile from "./components/SearchMobile";
 import ScrollToTop from "./components/ScrollToTop";
+import AboutUs from "./pages/AboutUs/AboutUs";
+import ContactUs from "./pages/ContactUs/ContactUs";
 
 const App = () => {
   return (
@@ -36,6 +39,8 @@ const App = () => {
         <Route path="/bookmarks" element={<Bookmarks />} />
         <Route path="/notifications" element={<Notifications />} />
         <Route path="/search" element={<SearchMobile />} />
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="/contact" element={<ContactUs />} />
       </Routes>
     </Router>
   );
