@@ -15,10 +15,10 @@ const MobileFooter = () => {
       flexDirection={"column"}
     >
       <VStack spacing={4} align="center" p={4}>
-        <Link href="#">Terms & Conditions</Link>
-        <Link href="#">Privacy Policy</Link>
-        <Link href="#">Contact us</Link>
-        <Link href="#">About us</Link>
+        <Link href="/terms">Terms & Conditions</Link>
+        <Link href="/privacy">Privacy Policy</Link>
+        <Link href="/contact">Contact us</Link>
+        <Link href="/about">About us</Link>
       </VStack>
     </Flex>
   );

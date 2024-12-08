@@ -19,16 +19,16 @@ const Footer = () => {
           fontWeight={"semibold"}
           mt={{ base: 4, sm: 0 }}
         >
-          <Link href="#" _hover={{ textDecoration: "underline" }}>
+          <Link href="/about" _hover={{ textDecoration: "underline" }}>
             About us
           </Link>
-          <Link href="#" _hover={{ textDecoration: "underline" }}>
+          <Link href="/contact" _hover={{ textDecoration: "underline" }}>
             Contact us
           </Link>
-          <Link href="#" _hover={{ textDecoration: "underline" }}>
+          <Link href="/privacy" _hover={{ textDecoration: "underline" }}>
             Privacy Policy
           </Link>
-          <Link href="#" _hover={{ textDecoration: "underline" }}>
+          <Link href="/terms" _hover={{ textDecoration: "underline" }}>
             Terms & Condition
           </Link>
         </Stack>

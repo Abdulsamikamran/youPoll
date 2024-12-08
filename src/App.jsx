@@ -19,6 +19,8 @@ import SearchMobile from "./components/SearchMobile";
 import ScrollToTop from "./components/ScrollToTop";
 import AboutUs from "./pages/AboutUs/AboutUs";
 import ContactUs from "./pages/ContactUs/ContactUs";
+import TermsAndConditions from "./components/TermsAndConditions";
+import PrivacyPolicy from "./components/PrivacyPolicy";
 
 const App = () => {
   return (
@@ -41,6 +43,8 @@ const App = () => {
         <Route path="/search" element={<SearchMobile />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/contact" element={<ContactUs />} />
+        <Route path="/terms" element={<TermsAndConditions />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
       </Routes>
     </Router>
   );
