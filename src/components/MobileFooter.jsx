@@ -1,6 +1,5 @@
-import { Button, Flex, Heading, VStack } from "@chakra-ui/react";
+import { Button, Flex, Link, Heading, VStack } from "@chakra-ui/react";
 import React from "react";
-import { Link } from "react-router-dom";
 
 const MobileFooter = () => {
   return (
